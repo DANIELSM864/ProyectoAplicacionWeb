@@ -1,10 +1,8 @@
 <!DOCTYPE html>
-<html  xmlns="http://www.w3.org/1999/xhtml"
-       xmlns:th="http://www.thymeleaf.org">
-    <head  th:fragment="head">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+    <head th:fragment="head">
         <title>Anasovi</title>
         <meta charset="UTF-8"/>
-        <link rel="stylesheet" th:href="@{/style.css}"/>
         <link th:href="@{/webjars/bootstrap/css/bootstrap.min.css}" rel="stylesheet"/>
         <link th:href="@{/webjars/font-awesome/css/all.css}" rel="stylesheet"/>
         <script th:src="@{/webjars/jquery/jquery.min.js}"></script>
@@ -13,29 +11,61 @@
         <link th:href="@{/static/css/style.css}" rel="stylesheet" type="text/css"/>
     </head>
     <body style="background-color: #FFEFEF;">
-
         <div th:fragment="header">
             <div class="col-lg-12">
                 <div style="background-color: #993955; width: 100%;" class="d-flex justify-content-center py-3">
                     <ul class="nav nav-pills" style="margin: 0px 40px;">
-                        <li class="nav-item"><a href="#" class="nav-link fw-bold" style="color: #0F0326;"aria-current="page">Principal</a></li>
-                        <li class="nav-item"><a href="#" class="nav-link  fw-bold" style="color: #0F0326;">Nosotros</a></li>
-                        <li class="nav-item"><a href="@{/noticia/paginaNoticia}" class="nav-link  fw-bold" style="color: #0F0326;">Noticias</a></li>
-                        <li class="nav-item"><a href="#" class="nav-link  fw-bold" style="color: #0F0326;">Eventos</a></li>
-                        <li class="nav-item"><a th:href="@{/donacion/paginaDonacion}" class="nav-link  fw-bold" style="color: #0F0326;">Donaciones</a></li>
-                        <li class="nav-item"><a href="@{/informate/paginaInformate}" class="nav-link  fw-bold" style="color: #0F0326;">Informate</a></li>
+                        <li class="nav-item"><a href="#" class="nav-link fw-bold" style="color: #0F0326;"
+                                                aria-current="page">Principal</a></li>
+                        <li class="nav-item"><a href="#" class="nav-link fw-bold" style="color: #0F0326;">Nosotros</a></li>
+                        <li class="nav-item"><a href="#" class="nav-link fw-bold" style="color: #0F0326;">Noticias</a></li>
+                        <li class="nav-item"><a href="#" class="nav-link fw-bold" style="color: #0F0326;">Eventos</a></li>
+                        <li class="nav-item"><a href="#" class="nav-link fw-bold" style="color: #0F0326;">Donaciones</a></li>
+                        <li class="nav-item"><a href="#" class="nav-link fw-bold" style="color: #0F0326;">Informate</a></li>
                     </ul>
                 </div>
             </div>
-
         </div>
 
+        <main th:fragment="main" style="display: flex; background-color: #FFEFEF">
+            <aside style="width: 70%; margin-left: 180px; ">
+                <!-- Contenido del aside aquí -->
+                <h3 style="margin: 20px 0"> Noticias</h3>
+                <div style="background-color: white; border-radius: 20px; padding: 20px; margin: 10px 0;">
+                    <h4>Nuevas noticias</h4>
+                    <div style="display: flex; justify-content: space-between;">
+                        <div style="width: 30%;">
+                            <img src="ruta-de-tu-imagen-1.jpg" alt="Imagen 1" style="width: 100%;">
+                        </div>
+                        <div style="width: 30%;">
+                            <img src="ruta-de-tu-imagen-2.jpg" alt="Imagen 2" style="width: 100%;">
+                        </div>
+                        <div style="width: 30%;">
+                            <img src="ruta-de-tu-imagen-3.jpg" alt="Imagen 3" style="width: 100%;">
+                        </div>
+                    </div>
 
 
+                    <div class="image-info-container">
+                        <div class="info-container">
+                            <h4>Título de la información</h4>
+                            <p>Texto descriptivo o información que quieres mostrar a la derecha de la imagen.</p>
+                            <div class="image-container">
+                            <img src="ruta-de-tu-imagen.jpg" alt="Imagen">
+                        </div>
+                        </div>
+                    </div>
 
+                    <!-- Agregar Lorem Ipsum debajo de las imágenes -->
+                    <div th:fragment="infoabajo" style="background-color: white; border-radius: 20px; padding: 20px; margin: 20px 0;">
+                        <h4>Otro Lorem Ipsum</h4>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elitation ullamco laboris nisi </p>
+                    </div>
+            </aside>
+
+        </main>
 
         <footer th:fragment="footer">
-
             <div style="background-color: white;">
                 <div class="row row-cols-1 row-cols-sm-2 row-cols-md-5 py-5  ">
                     <div class="col mb-3">
@@ -46,22 +76,17 @@
                         </a>
                         <p class="text-body-secondary">© ANASOVI 2023</p>
                     </div>
-
+                    <div class="col mb-3"></div>
                     <div class="col mb-3">
-
-                    </div>
-
-                    <div class="col mb-3">
-                        <h5>Navegacion</h5>
+                        <h5>Navegación</h5>
                         <ul class="nav flex-column">
                             <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Principal</a></li>
                             <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Eventos</a></li>
                             <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Noticias</a></li>
-                            <li class="nav-item mb-2"><a th:href="@{/donacion/paginaDonacion}" class="nav-link p-0 text-body-secondary">Donaciones</a></li>
+                            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Donaciones</a></li>
                             <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Nosotros</a></li>
                         </ul>
                     </div>
-
                     <div class="col mb-3">
                         <h5>Section</h5>
                         <ul class="nav flex-column">
@@ -72,7 +97,6 @@
                             <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">About</a></li>
                         </ul>
                     </div>
-
                     <div class="col mb-3">
                         <h5>Section</h5>
                         <ul class="nav flex-column">

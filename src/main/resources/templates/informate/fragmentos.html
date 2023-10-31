@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head th:fragment="head">
+    <title>Anasovi</title>
+    <meta charset="UTF-8"/>
+    <link th:href="@{/webjars/bootstrap/css/bootstrap.min.css}" rel="stylesheet"/>
+    <link th:href="@{/webjars/font-awesome/css/all.css}" rel="stylesheet"/>
+    <script th:src="@{/webjars/jquery/jquery.min.js}"></script>
+    <script th:src="@{/webjars/popper.js/umd/popper.min.js}"></script>
+    <script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+    <link th:href="@{/static/css/style.css}" rel="stylesheet" type="text/css"/>
+</head>
+<body style="background-color: #FFEFEF;">
+    <div th:fragment="header">
+        <div class="col-lg-12">
+            <div style="background-color: #993955; width: 100%;" class="d-flex justify-content-center py-3">
+                <ul class="nav nav-pills" style="margin: 0px 40px;">
+                    <li class="nav-item"><a href="#" class="nav-link fw-bold" style="color: #0F0326;"
+                            aria-current="page">Principal</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link fw-bold" style="color: #0F0326;">Nosotros</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link fw-bold" style="color: #0F0326;">Noticias</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link fw-bold" style="color: #0F0326;">Eventos</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link fw-bold" style="color: #0F0326;">Donaciones</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link fw-bold" style="color: #0F0326;">Informate</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <main th:fragment="main" style="display: flex; background-color: #FFEFEF">
+        <aside style="width: 70%; margin-left: 180px; ">
+            <!-- Contenido del aside aquí -->
+            <h3 style="margin: 20px 0"> Infórmate</h3>
+            <div style="background-color: white; border-radius: 20px; padding: 20px; margin: 10px 0;">
+                <h4>Lorem ipsum</h4>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elitation ullamco laboris nisi orem ipsum dolor
+                    sit amet, consectetur adipiscing elitation ullamco laboris nisiorem ipsum dolor sit amet,
+                    consectetur adipiscing elitation ullamco laboris nisiorem ipsum dolor sit amet, consectetur
+                    adipiscing elitation ullamco laboris nisi</p>
+            </div>
+
+            <!-- Sección para imágenes -->
+            <div th:fragment="imagenes" style="margin-top: 20px;">
+                <h3>Imágenes</h3>
+                <div style="display: flex; justify-content: space-between;">
+                    <div style="width: 45%;">
+                        <img src="ruta-de-tu-imagen-1.jpg" alt="Imagen 1" style="width: 100%;">
+                    </div>
+                    <div style="width: 45%;">
+                        <img src="ruta-de-tu-imagen-2.jpg" alt="Imagen 2" style="width: 100%;">
+                    </div>
+                </div>
+                <div style="display: flex; justify-content: space-between; margin-top: 20px;">
+                    <div style="width: 45%;">
+                        <img src="ruta-de-tu-imagen-3.jpg" alt="Imagen 3" style="width: 100%;">
+                    </div>
+                    <div style="width: 45%;">
+                        <img src="ruta-de-tu-imagen-4.jpg" alt="Imagen 4" style="width: 100%;">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Agregar Lorem Ipsum debajo de las imágenes -->
+            <div th:fragment="infoabajo" style="background-color: white; border-radius: 20px; padding: 20px; margin: 20px 0;">
+                <h4>Otro Lorem Ipsum</h4>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elitation ullamco laboris nisi </p>
+            </div>
+        </aside>
+
+    </main>
+
+    <footer th:fragment="footer">
+        <div style="background-color: white;">
+            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-5 py-5  ">
+                <div class="col mb-3">
+                    <a href="/" class="d-flex align-items-center mb-3 link-body-emphasis text-decoration-none">
+                        <svg class="bi me-2" width="50" height="32">
+                            <use xlink:href="#bootstrap"></use>
+                        </svg>
+                    </a>
+                    <p class="text-body-secondary">© ANASOVI 2023</p>
+                </div>
+                <div class="col mb-3"></div>
+                <div class="col mb-3">
+                    <h5>Navegación</h5>
+                    <ul class="nav flex-column">
+                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Principal</a></li>
+                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Eventos</a></li>
+                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Noticias</a></li>
+                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Donaciones</a></li>
+                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Nosotros</a></li>
+                    </ul>
+                </div>
+                <div class="col mb-3">
+                    <h5>Section</h5>
+                    <ul class="nav flex-column">
+                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Home</a></li>
+                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Features</a></li>
+                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Pricing</a></li>
+                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">FAQs</a></li>
+                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">About</a></li>
+                    </ul>
+                </div>
+                <div class="col mb-3">
+                    <h5>Section</h5>
+                    <ul class="nav flex-column">
+                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Home</a></li>
+                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Features</a></li>
+                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Pricing</a></li>
+                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">FAQs</a></li>
+                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">About</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
