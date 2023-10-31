@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head th:fragment="head">
+    <title>Anasovi</title>
+    <meta charset="UTF-8"/>
+    <link th:href="@{/webjars/bootstrap/css/bootstrap.min.css}" rel="stylesheet"/>
+    <link th:href="@{/webjars/font-awesome/css/all.css}" rel="stylesheet"/>
+    <script th:src="@{/webjars/jquery/jquery.min.js}"></script>
+    <script th:src="@{/webjars/popper.js/umd/popper.min.js}"></script>
+    <script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+    <link th:href="@{/static/css/style.css}" rel="stylesheet" type="text/css"/>
+</head>
+<body style="background-color: #FFEFEF;">
+    <div th:fragment="header">
+        <div class="col-lg-12">
+            <div style="background-color: #993955; width: 100%;" class="d-flex justify-content-center py-3">
+                <ul class="nav nav-pills" style="margin: 0px 40px;">
+                    <li class="nav-item"><a href="#" class="nav-link fw-bold" style="color: #0F0326;"
+                            aria-current="page">Principal</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link fw-bold" style="color: #0F0326;">Nosotros</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link fw-bold" style="color: #0F0326;">Noticias</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link fw-bold" style="color: #0F0326;">Eventos</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link fw-bold" style="color: #0F0326;">Donaciones</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link fw-bold" style="color: #0F0326;">Informate</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <main th:fragment="main" style="display: flex; background-color: #FFEFEF">
+        <aside style="width: 70%; margin-left: 180px; ">
+            <!-- Contenido del aside aquí -->
+            <h2 style="text-align: center; margin: 30px 0;">Eventos</h2>
+            
+            <div style="background-color: white; border-radius: 60px; padding: 20px; margin: 20px 0;">
+                <h4>Proximos</h4>
+                
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elitation ullamco laboris nisi orem ipsum dolor
+                    sit amet, consectetur adipiscing elitation ullamco laboris nisiorem ipsum dolor sit amet,
+                    consectetur adipiscing elitation ullamco laboris nisiorem ipsum dolor sit amet, consectetur
+                    adipiscing elitation ullamco laboris nisi</p>
+            </div>
+
+            <!-- Sección para imágenes -->
+            <div th:fragment="imagenes" style="margin-top: 20px;">
+                <h3></h3>
+                <div style="display: flex; justify-content: space-between;">
+                    <div style="width: 45%;">
+                        <img src="ruta-de-tu-imagen-1.jpg" alt="Imagen 1" style="width: 100%;">
+                    </div>
+                    <div style="width: 45%;">
+                        <img src="ruta-de-tu-imagen-2.jpg" alt="Imagen 2" style="width: 100%;">
+                    </div>
+                </div>
+           
+
+            <!-- Agregar Lorem Ipsum debajo de las imágenes -->
+        <div th:fragment="infoabajo" style="background-color: white; border-radius: 20px; padding: 20px; margin: 20px 0;">
+    <h4>Últimos Eventos</h4>
+
+    <!-- Evento 1 -->
+    <div th:fragment="evento1" style="margin-top: 20px; border: 1px solid #ccc; padding: 10px; border-radius: 10px;">
+        <h4>¡Juntos contra el Cáncer!</h4>
+        <div style="display: flex; justify-content: space-between;">
+            <div style="width: 30%;">
+                <img src="https://anasovi.org/wp-content/uploads/2023/06/Anasovi-JUNTOS-CONTRA-EL-CANCER-300x300.jpeg" alt="" style="width: 100%;">
+            </div>
+            <div style="width: 70%;">
+                <h5>Descripción</h5>
+                <div style="background-color: #f2f2f2; padding: 10px; border-radius: 10px;">
+                    <p> Estaremos juntos para concienciar, apoyar y trabajar juntos en la lucha contra esta enfermedad devastadora. Esta es una oportunidad para aprender, compartir experiencias y contribuir a una causa noble.
+Fecha: Junio 13, 2023 Hora: 5:30 PM - 7:30 PM Web: Visita nuestro evento en FacebookOrganizador: Anasovi</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Evento 2 -->
+    <div th:fragment="evento2" style="margin-top: 20px; border: 1px solid #ccc; padding: 10px; border-radius: 10px;">
+        <h4>Cáncer de Próstata</h4>
+        <div style="display: flex; justify-content: space-between;">
+            <div style="width: 30%;">
+                <img src="https://anasovi.org/wp-content/uploads/2023/06/1-MOLACAP-calidad-de-vida-cancer-prostata-1-300x251.png" alt="" style="width: 100%;">
+            </div>
+            <div style="width: 70%;">
+                <h5>Descripción</h5>
+                <div style="background-color: #f2f2f2; padding: 10px; border-radius: 10px;">
+                    <p>Cómo mejorar la calidad de vida de pacientes con cáncer de próstata
+
+Fecha: Junio 8, 2023
+Hora: 5:00 PM - 7:00 PM
+Web: Registro del evento en Zoom
+
+Organizador: MOLACAP
+
+Este evento está diseñado para proporcionar información valiosa y recursos para mejorar la calidad de vida de los pacientes con cáncer de próstata y sus seres queridos. </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Evento 3 -->
+    <div th:fragment="evento3" style="margin-top: 20px; border: 1px solid #ccc; padding: 10px; border-radius: 10px;">
+        <h4>Charla</h4>
+        <div style="display: flex; justify-content: space-between;">
+            <div style="width: 30%;">
+                <img src="https://anasovi.org/wp-content/uploads/2022/08/301647517_10161333671560695_8138406547611289650_n.jpg" alt="" style="width: 100%;">
+            </div>
+            <div style="width: 70%;">
+                <h5>Descripción</h5>
+                <div style="background-color: #f2f2f2; padding: 10px; border-radius: 10px;">
+                    <p>Charla "Hepatocarcinoma: del diagnóstico al tratamiento" Nuestros expertos discutirán las últimas investigaciones, avances médicos y terapias disponibles para abordar esta enfermedad. 
+
+Fecha: 01 de septiembre de 2022
+Hora: 5:00 PM - 7:00 PM
+
+Etiquetas del Evento: Evento, Zoom</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+
+
+
+
+        </aside>
+
+    </main>
+
+    <footer th:fragment="footer">
+        <div style="background-color: white;">
+            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-5 py-5  ">
+                <div class="col mb-3">
+                    <a href="/" class="d-flex align-items-center mb-3 link-body-emphasis text-decoration-none">
+                        <svg class="bi me-2" width="50" height="32">
+                            <use xlink:href="#bootstrap"></use>
+                        </svg>
+                    </a>
+                    <p class="text-body-secondary">© ANASOVI 2023</p>
+                </div>
+                <div class="col mb-3"></div>
+                <div class="col mb-3">
+                    <h5>Navegación</h5>
+                    <ul class="nav flex-column">
+                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Principal</a></li>
+                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Eventos</a></li>
+                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Noticias</a></li>
+                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Donaciones</a></li>
+                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Nosotros</a></li>
+                    </ul>
+                </div>
+                <div class="col mb-3">
+                    <h5>Section</h5>
+                    <ul class="nav flex-column">
+                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Home</a></li>
+                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Features</a></li>
+                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Pricing</a></li>
+                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">FAQs</a></li>
+                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">About</a></li>
+                    </ul>
+                </div>
+                <div class="col mb-3">
+                    <h5>Section</h5>
+                    <ul class="nav flex-column">
+                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Home</a></li>
+                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Features</a></li>
+                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Pricing</a></li>
+                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">FAQs</a></li>
+                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">About</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
