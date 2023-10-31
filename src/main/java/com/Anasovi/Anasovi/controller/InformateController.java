@@ -18,6 +18,6 @@ public class InformateController {
     @GetMapping("/paginaInformate")
     public String inicio() {
 
-        return "/informate/paginaInformate";
+        return "informate/paginaInformate";
     }
 }
