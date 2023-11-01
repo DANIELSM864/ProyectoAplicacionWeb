@@ -6,11 +6,62 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
-    <body>
-        
-        
-        
-        
-        
+    <body style="background-color: #FFEFEF;">
+
+        <section th:fragment="section" style="display: flex; background-color: #FFEFEF">
+            <aside style="width: 70%; margin-left: 180px;">
+                <div style="background-color: #FFEFEF;">
+                    <h3 style="margin: 20px 0">Donaciones</h3>
+
+                    <h4>¿Deseas realizar una donación?</h4>
+                    <div style="background-color: white; border-radius: 20px; padding: 20px; margin: 10px 0;">
+                        <p>Puedes realizar una donación anónima poniendo anónimo en la descripción de la transacción y será apreciada ya que ayudará con 
+                            nuestro trabajo y las personas involucradas en nuestro trabajo, o puedes poner tu nombre en la descripción de la transacción 
+                            y podrías aparecer como muestra de agradecimiento en la lista de donadores. </p>
+                    </div>
+
+
+                    <h4 style="margin-top: 40px">Información para donación</h4>
+                    <figure>
+                        <img src="ruta_de_la_imagen" alt="Texto alternativo">
+                    </figure>
+                    <h4 style="margin-top: 40px">Personas que han realizado una donación</h4>
+                    <table class="table">
+                        <thead class="table-light">
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Nombre</th>
+                                <th scope="col">1.º Apellido</th>
+                                <th scope="col">2.º Apellido</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row">1</th>
+                                <td>Mark</td>
+                                <td>Otto</td>
+                                <td>López</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">2</th>
+                                <td>Jacob</td>
+                                <td>Thornton</td>
+                                <td>Pérez</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">3</th>
+                                <td>Larry</td>
+                                <td>Sánchez</td>
+                                <td>Rodríguez</td>
+                            </tr>
+                        </tbody>
+                        
+                    </table>
+
+                </div>
+            </aside>          
+        </section>
+
+
     </body>
 </html>
