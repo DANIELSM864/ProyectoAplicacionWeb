@@ -14,8 +14,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/templates")
 public class PrincipalController {
 
-     @GetMapping("/index")
+    @GetMapping("/index")
     public String showIndexPage() {
-        return "index";
+        return "index"; 
     }
 }
+
