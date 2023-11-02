@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+    <head th:fragment="head">
+        <title>Anasovi</title>
+        <meta charset="UTF-8"/>
+        <link th:href="@{/webjars/bootstrap/css/bootstrap.min.css}" rel="stylesheet"/>
+        <link th:href="@{/webjars/font-awesome/css/all.css}" rel="stylesheet"/>
+        <script th:src="@{/webjars/jquery/jquery.min.js}"></script>
+        <script th:src="@{/webjars/popper.js/umd/popper.min.js}"></script>
+        <script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+        <link th:href="@{/static/css/style.css}" rel="stylesheet" type="text/css"/>
+    </head>
+    <body style="background-color: #FFEFEF;">
+        <div th:fragment="header">
+            <div class="col-lg-12">
+                <div style="background-color: #993955; width: 100%;" class="d-flex justify-content-center py-3">
+                    <ul class="nav nav-pills" style="margin: 0px 40px;">
+                        <li class="nav-item"><a href="#" class="nav-link fw-bold" style="color: #0F0326;"
+                                                aria-current="page">Principal</a></li>
+                        <li class="nav-item"><a href="#" class="nav-link fw-bold" style="color: #0F0326;">Nosotros</a></li>
+                        <li class="nav-item"><a href="#" class="nav-link fw-bold" style="color: #0F0326;">Noticias</a></li>
+                        <li class="nav-item"><a href="#" class="nav-link fw-bold" style="color: #0F0326;">Eventos</a></li>
+                        <li class="nav-item"><a href="#" class="nav-link fw-bold" style="color: #0F0326;">Donaciones</a></li>
+                        <li class="nav-item"><a href="#" class="nav-link fw-bold" style="color: #0F0326;">Informate</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <main th:fragment="main" style="display: flex; background-color: #FFEFEF">
+            <aside style="width: 70%; margin-left: 70px;">
+                <!-- Contenido del aside aquí -->
+                <h3 style="margin: 50px 0" class="text-center"> Contacte con Nosotros</h3>
+
+                <div style="background-color: #f2f2f2; border-radius: 5px; padding: 20px; margin: 10px 10px 50px 0;">
+                    <h4>Representante Legal</h4>
+                    <p>Juan Pedro Sanchez<br>
+                            +506 8423 1329<br>
+                                juanpedro123@gmail.com
+                                </p>
+                                <h4>Contactos Adicionales</h4>
+                                <p>Maria Antonieta Vidal<br>
+                                        +506 8412 4529<br>
+                                            mariaantonieta123@gmail.com
+                                            </p>
+                                            <h4>Ubicanos</h4>
+                                            <p>Frente a parque de guadalupe contiguo a correos de Costa Rica</p>
+                                            <iframe
+                                                width="600"
+                                                height="450"
+                                                style="border:0"
+                                                loading="lazy"
+                                                allowfullscreen
+                                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d982.4631055429048!2d-84.0541675304589!3d9.946234420333466!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8fa0f9f5ea40e455%3A0x76ad1ced1ae8fbae!2sLey%20%26%20Familia%20Abogados!5e0!3m2!1ses!2scr!4v1698937386510!5m2!1ses!2scr">
+                                            </iframe>
+                                            </div>
+                                            <div style="text-align: left; margin-top: 20px;">
+                                                <h4>Síguenos en redes sociales:</h4>
+                                                <div style="display: flex; justify-content: left;">
+                                                    <a href="https://www.facebook.com/" target="_blank">
+                                                        <img src="ruta-de-tu-imagen-facebook.jpg" alt="Facebook" style="width: 30px; height: 30px; margin: 0 10px;">
+                                                    </a>
+                                                    <a href="https://www.twitter.com/" target="_blank">
+                                                        <img src="ruta-de-tu-imagen-twitter.jpg" alt="Twitter" style="width: 30px; height: 30px; margin: 0 10px;">
+                                                    </a>
+                                                    <a href="https://www.instagram.com/" target="_blank">
+                                                        <img src="ruta-de-tu-imagen-instagram.jpg" alt="Instagram" style="width: 30px; height: 30px; margin: 0 10px;">
+                                                    </a>
+                                                    <!-- Añade otros enlaces y logotipos de redes sociales según sea necesario -->
+                                                </div>
+                                                <div style="text-align: left; margin-top: 20px;">
+                                                    <h4>Nosotros:</h4>
+                                                    <p>Su inicio en el 2006 es motivado con el primer recurso de amparo<br>
+                                                            a favor de una de sus fundadoras, Cintia Solano elaborado por su madre<br>
+                                                                Briselda Castillo, un diagnostico de cancer fue la motivacion para su formacion
+                                                                </aside>
+
+                                                                <div style="flex: 1;">
+                                                                    <!-- Código para el rectángulo vertical a la derecha -->
+                                                                    <div style="background-color: #f2f2f2; border-radius: 5px; padding: 20px; margin: 140px 0 50px 10px;">
+                                                                        <h4>Formulario de Contacto</h4>
+                                                                        <label for="nombre">Nombre:</label><br>
+                                                                            <input type="text" id="nombre" name="nombre"><br><br>
+                                                                                        <label for="correo">Correo:</label><br>
+                                                                                            <input type="text" id="correo" name="correo"><br><br>
+                                                                                                        <label for="asunto">Asunto:</label><br>
+                                                                                                            <input type="text" id="asunto" name="asunto"><br><br>
+                                                                                                                        <label for="asunto">Consulta:</label><br>
+                                                                                                                            <input type="text" id="consulta" name="consulta"><br><br>
+                                                                                                                        <!-- Agrega más etiquetas y cajas de texto según sea necesario -->
+                                                                                                                        </div>
+                                                                                                                        <img src="https://anasovi.org/wp-content/uploads/2022/06/fondo-1.jpg" alt="Google" style="width: 400px; height: 200px; margin-top: 500px;">
+                                                                                                                            </div>
+                                                                                                                            </div>
+                                                                                                                            </main>
+
+                                                                                                                            <!-- Código para el bloque de logotipos de redes sociales debajo del mapa -->
+
+                                                                                                                            </div>
+
+                                                                                                                            </aside>
+
+
+                                                                                                                            </aside>
+
+                                                                                                                            </main>
+
+                                                                                                                            <footer th:fragment="footer">
+                                                                                                                                <div style="background-color: white;">
+                                                                                                                                    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-5 py-5  ">
+                                                                                                                                        <div class="col mb-3">
+                                                                                                                                            <a href="/" class="d-flex align-items-center mb-3 link-body-emphasis text-decoration-none">
+                                                                                                                                                <svg class="bi me-2" width="50" height="32">
+                                                                                                                                                    <use xlink:href="#bootstrap"></use>
+                                                                                                                                                </svg>
+                                                                                                                                            </a>
+                                                                                                                                            <p class="text-body-secondary">© ANASOVI 2023</p>
+                                                                                                                                        </div>
+                                                                                                                                        <div class="col mb-3"></div>
+                                                                                                                                        <div class="col mb-3">
+                                                                                                                                            <h5>Navegación</h5>
+                                                                                                                                            <ul class="nav flex-column">
+                                                                                                                                                <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Principal</a></li>
+                                                                                                                                                <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Eventos</a></li>
+                                                                                                                                                <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Noticias</a></li>
+                                                                                                                                                <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Donaciones</a></li>
+                                                                                                                                                <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Nosotros</a></li>
+                                                                                                                                            </ul>
+                                                                                                                                        </div>
+                                                                                                                                        <div class="col mb-3">
+                                                                                                                                            <h5>Section</h5>
+                                                                                                                                            <ul class="nav flex-column">
+                                                                                                                                                <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Home</a></li>
+                                                                                                                                                <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Features</a></li>
+                                                                                                                                                <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Pricing</a></li>
+                                                                                                                                                <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">FAQs</a></li>
+                                                                                                                                                <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">About</a></li>
+                                                                                                                                            </ul>
+                                                                                                                                        </div>
+                                                                                                                                        <div class="col mb-3">
+                                                                                                                                            <h5>Section</h5>
+                                                                                                                                            <ul class="nav flex-column">
+                                                                                                                                                <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Home</a></li>
+                                                                                                                                                <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Features</a></li>
+                                                                                                                                                <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Pricing</a></li>
+                                                                                                                                                <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">FAQs</a></li>
+                                                                                                                                                <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">About</a></li>
+                                                                                                                                            </ul>
+                                                                                                                                        </div>
+                                                                                                                                    </div>
+                                                                                                                                </div>
+                                                                                                                            </footer>
+                                                                                                                            </body>
+                                                                                                                            </html>
