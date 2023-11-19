@@ -1,67 +1,76 @@
 <!DOCTYPE html>
 
-<html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
     <head>
         <title>TODO supply a title</title>
         <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    </head>
-    <body style="background-color: #FFEFEF;">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                </head>
+                <body style="background-color: #FFEFEF;">
 
-        <section th:fragment="section" style="display: flex; background-color: #FFEFEF">
-            <aside style="width: 70%; margin-left: 180px;">
-                <div style="background-color: #FFEFEF;">
-                    <h3 style="margin: 20px 0">Donaciones</h3>
+                    <section th:fragment="informacion" style="display: flex; background-color: #FFEFEF">
+                        <aside style="width: 70%; margin-left: 180px;">
+                            <div style="background-color: #FFEFEF;">
+                                <h3 style="margin: 20px 0">Donaciones</h3>
 
-                    <h4>¿Deseas realizar una donación?</h4>
-                    <div style="background-color: white; border-radius: 20px; padding: 20px; margin: 10px 0;">
-                        <p>Puedes realizar una donación anónima poniendo anónimo en la descripción de la transacción y será apreciada ya que ayudará con 
-                            nuestro trabajo y las personas involucradas en nuestro trabajo, o puedes poner tu nombre en la descripción de la transacción 
-                            y podrías aparecer como muestra de agradecimiento en la lista de donadores. </p>
-                    </div>
-
-
-                    <h4 style="margin-top: 40px">Información para donación</h4>
-                    <figure>
-                        <img src="https://anasovi.org/wp-content/uploads/2022/09/WhatsApp-Image-2022-08-31-at-10.40.29-PM-768x768.jpeg" alt="Texto alternativo">
-                    </figure>
-                    <h4 style="margin-top: 40px">Personas que han realizado una donación</h4>
-                    <table class="table">
-                        <thead class="table-light">
-                            <tr>
-                                <th scope="col">#</th>
-                                <th scope="col">Nombre</th>
-                                <th scope="col">1.º Apellido</th>
-                                <th scope="col">2.º Apellido</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <th scope="row">1</th>
-                                <td>Mark</td>
-                                <td>Otto</td>
-                                <td>López</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">2</th>
-                                <td>Jacob</td>
-                                <td>Thornton</td>
-                                <td>Pérez</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">3</th>
-                                <td>Larry</td>
-                                <td>Sánchez</td>
-                                <td>Rodríguez</td>
-                            </tr>
-                        </tbody>
-                        
-                    </table>
-
-                </div>
-            </aside>          
-        </section>
+                                <h4>¿Deseas realizar una donación?</h4>
+                                <div style="background-color: white; border-radius: 20px; padding: 20px; margin: 10px 0;">
+                                    <p>Puedes realizar una donación anónima poniendo anónimo en la descripción de la transacción y será apreciada ya que ayudará con 
+                                        nuestro trabajo y las personas involucradas en nuestro trabajo, o puedes poner tu nombre en la descripción de la transacción 
+                                        y podrías aparecer como muestra de agradecimiento en la lista de donadores. </p>
+                                </div>
 
 
-    </body>
-</html>
+                                <h4 style="margin-top: 40px">Información para donación</h4>
+                                <figure>
+                                    <img src="https://anasovi.org/wp-content/uploads/2022/09/WhatsApp-Image-2022-08-31-at-10.40.29-PM-768x768.jpeg" alt="Texto alternativo">
+                                </figure>                          </div>
+                        </aside>          
+                    </section>
+                    <!-- 3 Sección principal para mostrar la informaccion de la entidad producto -->
+                    <section th:fragment="listadoDonadores" id="donacions">
+
+                        <div style="background-color: #FFEFEF;">
+                            <h2 class="text-center">Lista de personas donadores</h2>
+
+                            <div class="row justify-content-center">
+                                <div class="col-md-9">
+                                    <div class="card">
+                                        <div class="card-header">
+                                            <h4 class="text-center">Listado</h4>
+                                        </div>
+                                        <div th:if="${donacions != null and !donacions.empty}">
+                                            <table class="table">
+                                                <thead class="table-light">
+                                                    <tr>
+                                                        <th scope="col">#</th>
+                                                        <th scope="col">Nombre</th>
+                                                        <th scope="col">1.º Apellido</th>
+                                                        <th scope="col">2.º Apellido</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr th:each="donacion, contador : ${donacions}">
+                                                        <th scope="row" th:text="${contador.count}"></th>
+                                                        <td th:text="${donacion.nombre}"></td>
+                                                        <td th:text="${donacion.primerApellido}"></td>
+                                                        <td th:text="${donacion.segundoApellido}"></td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                        <div class="text-center p-2" th:if="${donacions == null or donacions.empty}">
+                                            <span>lista vacía</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        </div>
+                    </section>
+
+
+                </body>
+                </html>

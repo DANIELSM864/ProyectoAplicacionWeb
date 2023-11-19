@@ -13,16 +13,21 @@ import lombok.Data;
 @Data
 @Entity
 @Table(name = "donadores")
-public class Donacion implements Serializable{
+public class Donacion implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "cedula")
     private Long cedula;
+    
     private String nombre;
+    
+    @Column(name = "primer_apellido")
     private String primerApellido;
+    
+    @Column(name = "segundo_apellido")
     private String segundoApellido;
 
 }
+

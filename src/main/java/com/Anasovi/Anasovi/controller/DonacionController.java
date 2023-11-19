@@ -1,4 +1,3 @@
-
 package com.Anasovi.Anasovi.controller;
 
 import com.Anasovi.Anasovi.domain.Donacion;
@@ -15,30 +14,30 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
-
 @Controller
 @Slf4j
 @RequestMapping("/donacion")
 public class DonacionController {
-    
+
     @Autowired
     private DonacionService donacionService;
-    
+
     @GetMapping("/paginaDonacion")
-    public String listado(Model model){
-        var donacions= donacionService.getDonacions(false);
-        model.addAttribute("donacions",donacions);
+    public String listado(Model model) {
+        var donacions = donacionService.getDonacions(false);
+        model.addAttribute("donacions", donacions);
         model.addAttribute("totalDonacions", donacions.size());
-        
+
         return "/donacion/paginaDonacion";
     }
-      @GetMapping("/nuevo")
+
+    @GetMapping("/nuevo")
     public String donacionNuevo(Donacion donacion) {
         return "/donacion/modifica";
     }
 
     @PostMapping("/guardar")
-    public String donacionGuardar(Donacion donacion) {        
+    public String donacionGuardar(Donacion donacion) {
         donacionService.save(donacion);
         return "redirect:/donacion/paginaDonacion";
     }
@@ -55,6 +54,5 @@ public class DonacionController {
         model.addAttribute("donacion", donacion);
         return "/donacion/modifica";
     }
-    
-    
+
 }
