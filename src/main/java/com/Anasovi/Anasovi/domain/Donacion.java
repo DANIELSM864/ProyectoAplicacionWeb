@@ -21,9 +21,8 @@ public class Donacion implements Serializable{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "cedula")
     private Long cedula;
-    
-    private String descripcion;
-    private String rutaImagen;
-    private boolean activo;
+    private String nombre;
+    private String primerApellido;
+    private String segundoApellido;
 
 }

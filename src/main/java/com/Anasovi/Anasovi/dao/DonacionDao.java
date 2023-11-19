@@ -1,10 +1,10 @@
 
 package com.Anasovi.Anasovi.dao;
 
-/**
- *
- * @author danis
- */
-public interface DonacionDao {
+import com.Anasovi.Anasovi.domain.Donacion;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+
+public interface DonacionDao extends JpaRepository <Donacion, Long>{
     
 }
