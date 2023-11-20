@@ -35,12 +35,17 @@ public class DonacionController {
     public String donacionNuevo(Donacion donacion) {
         return "/donacion/modifica";
     }
+    @GetMapping("/nuevoD")
+    public String donacionNuevoD(Donacion donacion) {
+        return "/donacion/agrega";
+    }
 
     @PostMapping("/guardar")
     public String donacionGuardar(Donacion donacion) {
         donacionService.save(donacion);
         return "redirect:/donacion/paginaDonacion";
     }
+    
 
     @GetMapping("/eliminar/{cedula}")
     public String donacionEliminar(Donacion donacion) {

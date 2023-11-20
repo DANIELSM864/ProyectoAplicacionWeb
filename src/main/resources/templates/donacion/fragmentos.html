@@ -5,72 +5,215 @@
     <head>
         <title>TODO supply a title</title>
         <meta charset="UTF-8">
-            <meta name="viewport" content="width=device-width, initial-scale=1.0">
-                </head>
-                <body style="background-color: #FFEFEF;">
 
-                    <section th:fragment="informacion" style="display: flex; background-color: #FFEFEF">
-                        <aside style="width: 70%; margin-left: 180px;">
-                            <div style="background-color: #FFEFEF;">
-                                <h3 style="margin: 20px 0">Donaciones</h3>
+    </head>
+    <body style="background-color: #FFEFEF;">
 
-                                <h4>¿Deseas realizar una donación?</h4>
-                                <div style="background-color: white; border-radius: 20px; padding: 20px; margin: 10px 0;">
-                                    <p>Puedes realizar una donación anónima poniendo anónimo en la descripción de la transacción y será apreciada ya que ayudará con 
-                                        nuestro trabajo y las personas involucradas en nuestro trabajo, o puedes poner tu nombre en la descripción de la transacción 
-                                        y podrías aparecer como muestra de agradecimiento en la lista de donadores. </p>
-                                </div>
+        <section th:fragment="informacion" style="display: flex; background-color: #FFEFEF">
+            <aside style="width: 70%; margin-left: 180px;">
+                <div style="background-color: #FFEFEF;">
+                    <h3 style="margin: 20px 0">Donaciones</h3>
+
+                    <h4>¿Deseas realizar una donación?</h4>
+                    <div style="background-color: white; border-radius: 20px; padding: 20px; margin: 10px 0;">
+                        <p>Puedes realizar una donación anónima poniendo anónimo en la descripción de la transacción y será apreciada ya que ayudará con 
+                            nuestro trabajo y las personas involucradas en nuestro trabajo, o puedes poner tu nombre en la descripción de la transacción 
+                            y podrías aparecer como muestra de agradecimiento en la lista de donadores. </p>
+                    </div>
 
 
-                                <h4 style="margin-top: 40px">Información para donación</h4>
-                                <figure>
-                                    <img src="https://anasovi.org/wp-content/uploads/2022/09/WhatsApp-Image-2022-08-31-at-10.40.29-PM-768x768.jpeg" alt="Texto alternativo">
-                                </figure>                          </div>
-                        </aside>          
-                    </section>
-                    <!-- 3 Sección principal para mostrar la informaccion de la entidad producto -->
-                    <section th:fragment="listadoDonadores" id="donacions">
+                    <h4 style="margin-top: 40px">Información para donación</h4>
+                    <figure>
+                        <img src="https://anasovi.org/wp-content/uploads/2022/09/WhatsApp-Image-2022-08-31-at-10.40.29-PM-768x768.jpeg" alt="Texto alternativo">
+                    </figure>                          </div>
+            </aside>          
+        </section>
+        <!-- 3 Sección principal para mostrar la informaccion de la entidad donacion -->
+        <section  th:fragment="listadoDonadores" id="donacions">
 
-                        <div style="background-color: #FFEFEF;">
-                            <h2 class="text-center">Lista de personas donadores</h2>
+            <div style="background-color: #FFEFEF;">
+                <h2 class="text-center">Lista de personas donadores</h2>
 
-                            <div class="row justify-content-center">
-                                <div class="col-md-9">
-                                    <div class="card">
-                                        <div class="card-header">
-                                            <h4 class="text-center">Listado</h4>
-                                        </div>
-                                        <div th:if="${donacions != null and !donacions.empty}">
-                                            <table class="table">
-                                                <thead class="table-light">
-                                                    <tr>
-                                                        <th scope="col">#</th>
-                                                        <th scope="col">Nombre</th>
-                                                        <th scope="col">1.º Apellido</th>
-                                                        <th scope="col">2.º Apellido</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <tr th:each="donacion, contador : ${donacions}">
-                                                        <th scope="row" th:text="${contador.count}"></th>
-                                                        <td th:text="${donacion.nombre}"></td>
-                                                        <td th:text="${donacion.primerApellido}"></td>
-                                                        <td th:text="${donacion.segundoApellido}"></td>
-                                                    </tr>
-                                                </tbody>
-                                            </table>
-                                        </div>
-                                        <div class="text-center p-2" th:if="${donacions == null or donacions.empty}">
-                                            <span>lista vacía</span>
+                <div class="row justify-content-center">
+                    <div class="col-md-9">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4 class="text-center">Listado</h4>
+                                <a th:href="@{/donacion/nuevoD}" class="btn btn-primary border-0" type="button" style="background-color: #993955;">
+                                    <i>Agregar donador</i>
+                                </a>
+                            </div>
+                            <div th:if="${donacions != null and !donacions.empty}">
+                                <table class="table">
+                                    <thead class="table-light">
+                                        <tr>
+                                            <th class="text-center" scope="col">#</th>
+                                            <th class="text-center" scope="col">Nombre</th>
+                                            <th class="text-center" scope="col">1.º Apellido</th>
+                                            <th class="text-center" scope="col">2.º Apellido</th>
+                                            <th class="text-center" scope="col">Acciones</th> <!-- Nueva columna para el botón -->
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr th:each="donacion, contador : ${donacions}">
+                                            <td class="text-center" th:text="${contador.count}"></td>
+                                            <td class="text-center" th:text="${donacion.nombre}"></td>
+                                            <td class="text-center" th:text="${donacion.primerApellido}"></td>
+                                            <td class="text-center" th:text="${donacion.segundoApellido}"></td>
+                                            <td class="text-center">
+                                                <a th:href="@{/donacion/eliminar/}+${donacion.cedula}" class="btn btn-primary border-0" type="button" style="background-color: #993955;">
+                                                    <i>Eliminar</i>
+                                                </a>
+                                                <a th:href="@{/donacion/modificar/}+${donacion.cedula}" class="btn btn-primary border-0" type="button" style="background-color: #993955;">
+                                                    <i>Modificar</i>
+                                                </a>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+
+                            </div>
+                            <div class="text-center p-2" th:if="${donacions == null or donacions.empty}">
+                                <span>lista vacía</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </section>
+        <section th:fragment="editarDonador">
+            <div class="row">
+                <div class="col-md-2"></div>
+                <div class="col-md-8">
+                    <form method="POST"
+                          th:action="@{/donacion/guardar}" 
+                          th:object="${donacion}"                         
+                          enctype="multipart/form-data">
+                        <div id=details>
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col">
+                                        <div class="card">
+                                            <div class="card-header">
+                                                <h4>Actualizar</h4>
+                                            </div>
+                                            <div class="card-body">
+                                                <div class="mb-3">
+                                                    <label  for="cedula">Cédula</label>
+                                                    <input type="number" class="form-control" 
+                                                           name="cedula" th:field="*{cedula}"
+                                                           required="true">
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label for="nombre">Nombre</label>
+                                                    <input type="text" class="form-control" 
+                                                           name="nombre" th:field="*{nombre}"
+                                                           required="true">
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label for="primer Apellido">Primer Apellido</label>
+                                                    <input type="text" class="form-control" 
+                                                           name="primerApellido" th:field="*{primerApellido}"
+                                                           required="true">
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label for="segundo Apellido">Segundo Apellido</label>
+                                                    <input type="text" class="form-control" 
+                                                           name="segundoApellido" th:field="*{segundoApellido}"
+                                                           required="true">
+                                                </div>
+                                                <div class="container py-4 mb-4">
+                                                    <div class="row">
+                                                        <div class="col-md-4 d-grid mx-auto">
+                                                            <a style="background-color: #993955;" th:href="@{/donacion/paginaDonacion}" class="btn btn-primary border-0">
+                                                                <i class="fas fa-arrow-left"></i> Regresar
+                                                            </a>
+                                                        </div>
+
+                                                        <div class="col-md-4 d-grid mx-auto">
+                                                            <button style="background-color: #993955;" class="btn btn-primary border-0" type="submit">
+                                                                <i class="fas fa-check"></i> Guardar
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+        <section th:fragment="agregarDonador">
+            <div class="row">
+                <div class="col-md-2"></div>
+                <div class="col-md-8">
+                    <form method="POST"
+                          th:action="@{/donacion/guardar}" 
+                          th:object="${donacion}"                         
+                          enctype="multipart/form-data">
+                        <div id=details>
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col">
+                                        <div class="card">
+                                            <div class="card-header">
+                                                <h4>Añadir donador</h4>
+                                            </div>
+                                            <div class="card-body">
+                                                <div class="mb-3">
+                                                    <label  for="cedula">Cédula</label>
+                                                    <input type="number" class="form-control" 
+                                                           name="cedula"
+                                                           required="true">
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label for="nombre">Nombre</label>
+                                                    <input type="text" class="form-control" 
+                                                           name="nombre" 
+                                                           required="true">
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label for="primer Apellido">Primer Apellido</label>
+                                                    <input type="text" class="form-control" 
+                                                           name="primerApellido" 
+                                                           required="true">
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label for="segundo Apellido">Segundo Apellido</label>
+                                                    <input type="text" class="form-control" 
+                                                           name="segundoApellido"
+                                                           required="true">
+                                                </div>
+                                                <div class="container py-4 mb-4">
+                                                    <div class="row">
+                                                        <div class="col-md-4 d-grid mx-auto">
+                                                            <a style="background-color: #993955;" th:href="@{/donacion/paginaDonacion}" class="btn btn-primary border-0">
+                                                                <i class="fas fa-arrow-left"></i> Regresar
+                                                            </a>
+                                                        </div>
 
+                                                        <div class="col-md-4 d-grid mx-auto">
+                                                            <button style="background-color: #993955;" class="btn btn-primary border-0" type="submit">
+                                                                <i class="fas fa-check"></i> Guardar
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                    </section>
-
-
-                </body>
-                </html>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </body>
+</html>
