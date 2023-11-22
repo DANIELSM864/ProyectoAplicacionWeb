@@ -80,7 +80,12 @@
                                                 <h4>Añadir noticia</h4>
                                             </div>
                                             <div class="card-body">
-
+                                                <div class="mb-3">
+                                                    <label for="nombre">nombre</label>
+                                                    <input type="text" class="form-control" 
+                                                           name="nombre" 
+                                                           required="true">
+                                                </div>
                                                 <div class="mb-3">
                                                     <label for="descripcion">descripcion</label>
                                                     <input type="text" class="form-control" 
@@ -136,9 +141,14 @@
                                                 <h4>Actualizar</h4>
                                             </div>
                                             <div class="card-body">
-
                                                 <div class="mb-3">
-                                                    <label for="nombre">descripcion</label>
+                                                    <label for="nombre">nombre</label>
+                                                    <input type="text" class="form-control" 
+                                                           name="nombre" th:field="*{nombre}"
+                                                           required="true">
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label for="descripcion">descripcion</label>
                                                     <input type="text" class="form-control" 
                                                            name="descripcion" th:field="*{descripcion}"
                                                            required="true">
@@ -237,8 +247,11 @@
                         <img th:src="${noticia.ruta_imagen}" class="card-img-top" height="200" alt="..."/>  
                     </figure>
                     <div class="card-header">
-                        [[${noticia.descripcion}]]
 
+                        [[${noticia.nombre}]]
+                    </div>
+                    <div class="card-body">   
+                        [[${noticia.descripcion}]]
                     </div>
                     <div class="card-body">
                         <a th:href="@{/noticia/eliminar/}+${noticia.id_noticia}" class="btn btn-primary border-0" type="button" style="background-color: #993955;">

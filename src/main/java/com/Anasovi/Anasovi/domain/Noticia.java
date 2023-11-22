@@ -17,6 +17,8 @@ public class Noticia implements Serializable {
     @Column(name = "id_noticia")
     private Long id_noticia;
     
+    
+    private String nombre;
     private String descripcion;
     private String ruta_imagen;
 
