@@ -56,14 +56,14 @@ public class NoticiaController {
     }
 
     // Endpoint para eliminar una noticia
-    @GetMapping("/eliminar/{id}")
+    @GetMapping("/eliminar/{id_noticia}")
     public String noticiaEliminar(Noticia noticia) {
         noticiaService.delete(noticia);
         return "noticia/paginaNoticia"; // Redirige al listado de noticias después de eliminar
     }
 
     // Endpoint para modificar una noticia existente
-    @GetMapping("/modificar/{id}")
+    @GetMapping("/modificar/{id_noticia}")
     public String noticiaModificar(Noticia noticia, Model model) {
         noticia = noticiaService.getNoticia(noticia);
         model.addAttribute("noticia", noticia);
