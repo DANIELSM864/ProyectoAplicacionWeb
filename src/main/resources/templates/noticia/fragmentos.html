@@ -1,33 +1,14 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<html xmlns="http://www.w3.org/1999/xhtml" 
+      xmlns:th="http://www.thymeleaf.org">
     <head th:fragment="head">
         <title>Anasovi</title>
-        <meta charset="UTF-8"/>
-        <link th:href="@{/webjars/bootstrap/css/bootstrap.min.css}" rel="stylesheet"/>
-        <link th:href="@{/webjars/font-awesome/css/all.css}" rel="stylesheet"/>
-        <script th:src="@{/webjars/jquery/jquery.min.js}"></script>
-        <script th:src="@{/webjars/popper.js/umd/popper.min.js}"></script>
-        <script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
-        <link th:href="@{/static/css/style.css}" rel="stylesheet" type="text/css"/>
+
     </head>
     <body style="background-color: #FFEFEF;">
-        <div th:fragment="header">
-            <div class="col-lg-12">
-                <div style="background-color: #993955; width: 100%;" class="d-flex justify-content-center py-3">
-                    <ul class="nav nav-pills" style="margin: 0px 40px;">
-                        <li class="nav-item"><a href="#" class="nav-link fw-bold" style="color: #0F0326;"
-                                                aria-current="page">Principal</a></li>
-                        <li class="nav-item"><a th:href="@{/nosotros/paginaNosotros}" class="nav-link  fw-bold" style="color: #0F0326;">Nosotros</a></li>
-                        <li class="nav-item"><a th:href="@{/noticia/paginaNoticia}" class="nav-link  fw-bold" style="color: #0F0326;">Noticias</a></li>
-                        <li class="nav-item"><a th:href="@{/evento/paginaEvento}" class="nav-link  fw-bold" style="color: #0F0326;">Eventos</a></li>
-                        <li class="nav-item"><a th:href="@{/donacion/paginaDonacion}" class="nav-link  fw-bold" style="color: #0F0326;">Donaciones</a></li>
-                        <li class="nav-item"><a th:href="@{/informate/paginaInformate}" class="nav-link  fw-bold" style="color: #0F0326;">Informate</a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
 
-        <main th:fragment="main" style="display: flex; background-color: #FFEFEF">
+
+        <section th:fragment="info" style="display: flex; background-color: #FFEFEF">
             <aside style="width: 70%; margin-left: 180px; ">
                 <!-- Contenido del aside aquí -->
                 <h3 style="margin: 20px 0"> Noticias</h3>
@@ -36,18 +17,18 @@
                     <div style="display: flex; justify-content: space-between;">
                         <div style="width: 30%;">
                             <figure>
-                    <img src="https://anasovi.org/wp-content/uploads/2022/08/image-205.png" width="356" height="350" alt="Noticia_1"/>
-                </figure>
+                                <img src="https://anasovi.org/wp-content/uploads/2022/08/image-205.png" width="356" height="350" alt="Noticia_1"/>
+                            </figure>
                         </div>
                         <div style="width: 30%;">
                             <figure>
-                    <img src="https://anasovi.org/wp-content/uploads/2022/08/image-204.png" width="356" height="350" alt="Noticia_2"/>
-                </figure>
+                                <img src="https://anasovi.org/wp-content/uploads/2022/08/image-204.png" width="356" height="350" alt="Noticia_2"/>
+                            </figure>
                         </div>
                         <div style="width: 30%;">
                             <figure>
-                    <img src="https://anasovi.org/wp-content/uploads/2022/08/image-198.png" width="356" height="350" alt="Noticia_3"/>
-                </figure>
+                                <img src="https://anasovi.org/wp-content/uploads/2022/08/image-198.png" width="356" height="350" alt="Noticia_3"/>
+                            </figure>
                         </div>
                     </div>
 
@@ -58,10 +39,10 @@
                             <p>¡Unete a nuestra charla para saber mas contra el cáncer de próstata, 
                                 hablaremos de los factores de riesgo, mitos y aspectos importantes de esta enfermedad!</p>
                             <div class="image-container">
-                            <figure>
-                    <img src="https://anasovi.org/wp-content/uploads/2023/06/353416771_650387130450014_593853373840484932_n-1024x1024.jpg" width="356" height="350" alt="Cancer_de_prostata"/>
-                </figure>
-                        </div>
+                                <figure>
+                                    <img src="https://anasovi.org/wp-content/uploads/2023/06/353416771_650387130450014_593853373840484932_n-1024x1024.jpg" width="356" height="350" alt="Cancer_de_prostata"/>
+                                </figure>
+                            </div>
                         </div>
                     </div>
 
@@ -72,205 +53,205 @@
                             a diferentes organizaciones participantes. Tendremos como representante a la Sra. Briseida Cantillo.</p>
                         <div style="width: 30%;">
                             <figure>
-                    <img src="https://anasovi.org/wp-content/uploads/2023/06/354442752_632066352282798_6091792634605168663_n-1.png" width="550" height="250" alt="IKCC"/>
-                </figure>
+                                <img src="https://anasovi.org/wp-content/uploads/2023/06/354442752_632066352282798_6091792634605168663_n-1.png" width="550" height="250" alt="IKCC"/>
+                            </figure>
                         </div>
                     </div>
             </aside>
-            
-            </main>
-            
-            <section th:fragment="botonesAgregar" class="py-4 mb-4 bg-light">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-3">   
-                        <button 
-                            type="button" 
-                            class="btn btn-primary btn-block" 
-                            data-bs-toggle="modal" 
-                            data-bs-target="#agregarNoticia">
-                            <i class="fas fa-plus"></i> Agregar Noticia
-                        </button>
-                    </div>
-                </div>
-            </div>
+
         </section>
+
+
 
         <section th:fragment="agregarNoticia">
-            <div id="agregarNoticia" 
-                 class="modal fade" 
-                 tabindex="-1" 
-                 aria-labelledby="exampleModalLabel" 
-                 aria-hidden="true">
-                <div class="modal-dialog modal-md">
-                    <div class="modal-content">
-                        <div class="modal-header bg-info text-white">
-                            <h5 class="modal-title">Agregar noticia</h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div> 
-                        <form th:action="@{/arbol/guardar}" th:object="${arbol}"
-                              method="POST" class="was-validated" enctype="multipart/form-data">
-                            <div class="modal-body">
-                                <div class="mb-3">
-                                    <label for="descripcion">id noticia</label>
-                                    <input type="text" class="form-control" name="id_noticia" required="true"/>
-                                </div>
-                                <div class="mb-3">
-                                    <label for="descripcion">Descripcion</label>
-                                    <input type="text" class="form-control" name="descripcion" required="true"/>
-                                </div>
-                                <div class="mb-3">
-                                    <label for="imagen">Imagen</label>
-                                    <input class="form-control" type="file" name="imagenFile" onchange="readURL(this);"/>
-                                    <img id="blah" src="#" alt="your image" height="200"/>
-                                </div>
-                            </div>
-                            <div class="modal-footer">
-                                <button class="btn btn-primary" type="submit">Guardar</button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- 3 Sección principal para mostrar la informaccion de la entidad arbol -->
-        <section th:fragment="listadoNoticias" id="noticias">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-9">
-                <div class="card">
-                    <div class="card-header">
-                        <h4>Lista de noticias</h4>
-                    </div>
-                    <div class="card-body">
-                        <div class="row row-cols-4">
-                            <div class="card" th:each="n : ${noticias}">
-                                <img th:src="${n.ruta_imagen}" class="card-img-top" alt="...">
-                                <div class="card-body">
-                                    <h5 class="card-title" th:text="${n.descripcion}"></h5>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-
-        <section th:fragment="editarNoticia">
             <div class="row">
                 <div class="col-md-2"></div>
                 <div class="col-md-8">
                     <form method="POST"
                           th:action="@{/noticia/guardar}" 
-                          th:object="${noticia}"
-                          class="was-validated"                          
+                          th:object="${noticia}"                         
                           enctype="multipart/form-data">
-                        <input type="hidden" name="id_noticia" th:field="*{id_noticia}"/>
-                        <input type="hidden" name="ruta_imagen" th:field="*{ruta_imagen}"/>
-                        <section th:replace="~{arbol/fragmentos :: botonesEditar}"/>
                         <div id=details>
                             <div class="container">
                                 <div class="row">
                                     <div class="col">
                                         <div class="card">
                                             <div class="card-header">
-                                                <h4>[[#{accion.actualizar}]]</h4>
+                                                <h4>Añadir noticia</h4>
                                             </div>
                                             <div class="card-body">
+
                                                 <div class="mb-3">
-                                    <label for="descripcion">id noticia</label>
-                                    <input type="text" class="form-control" name="id_noticia" required="true"/>
-                                </div>
-                                <div class="mb-3">
-                                    <label for="descripcion">Descripcion</label>
-                                    <input type="text" class="form-control" name="descripcion" required="true"/>
-                                </div>
-                                <div class="mb-3">
-                                    <label for="imagen">Imagen</label>
-                                    <input class="form-control" type="file" name="imagenFile" onchange="readURL(this);"/>
-                                    <img id="blah" src="#" alt="your image" height="200"/>
-                                </div>
+                                                    <label for="descripcion">descripcion</label>
+                                                    <input type="text" class="form-control" 
+                                                           name="descripcion" 
+                                                           required="true">
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label for="imagen">Imagen</label>
+                                                    <input class="form-control" type="file" name="imagenFile" onchange="readURL(this);"/>
+                                                    <img id="blah" src="#" alt="your image" height="200"/>
+                                                </div>
+                                                <div class="container py-4 mb-4">
+                                                    <div class="row">
+                                                        <div class="col-md-4 d-grid mx-auto">
+                                                            <a style="background-color: #993955;" th:href="@{/noticia/paginaNoticia}" class="btn btn-primary border-0">
+                                                                <i class="fas fa-arrow-left"></i> Regresar
+                                                            </a>
+                                                        </div>
+
+                                                        <div class="col-md-4 d-grid mx-auto">
+                                                            <button th:href="@{/noticia/paginaNoticia}" style="background-color: #993955;" class="btn btn-primary border-0" type="submit">
+                                                                <i class="fas fa-check"></i> Guardar
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+        <section th:fragment="editarNoticia">
+            <div class="row">
+                <div class="col-md-2"></div>
+                <div class="col-md-8">
+                    <form method="POST"
+                          th:action="@{/noticia/guardar}" 
+                          th:object="${noticia}"                         
+                          enctype="multipart/form-data">
+                        <div id=details>
+                            <input type="hidden" name="id_noticia" th:field="*{id_noticia}"/>
+                            <input type="hidden" name="ruta_imagen" th:field="*{ruta_imagen}"/>
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col">
+                                        <div class="card">
+                                            <div class="card-header">
+                                                <h4>Actualizar</h4>
+                                            </div>
+                                            <div class="card-body">
+
+                                                <div class="mb-3">
+                                                    <label for="nombre">descripcion</label>
+                                                    <input type="text" class="form-control" 
+                                                           name="descripcion" th:field="*{descripcion}"
+                                                           required="true">
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label for="imagen">Imagen</label>
+                                                    <input class="form-control" type="file" name="imagenFile"
+                                                           onchange="readURL(this);" />
+                                                    <img id="blah" th:src="@{${noticia.ruta_imagen}}" alt="your image" height="200"/>
+                                                </div>
+                                                <div class="container py-4 mb-4">
+                                                    <div class="row">
+                                                        <div class="col-md-4 d-grid mx-auto">
+                                                            <a style="background-color: #993955;" th:href="@{/noticia/paginaNoticia}" class="btn btn-primary border-0">
+                                                                <i class="fas fa-arrow-left"></i> Regresar
+                                                            </a>
+                                                        </div>
+
+                                                        <div class="col-md-4 d-grid mx-auto">
+                                                            <button style="background-color: #993955;" class="btn btn-primary border-0" type="submit">
+                                                                <i class="fas fa-check"></i> Guardar
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </form>
                 </div>
             </div>
         </section>
 
-        <section th:fragment="botonesEditar">
-            <div class="container py-4 mb-4 bg-light">
-                <div class="row">
-                    <div class="col-md-4 d-grid">
-                        <a th:href="@{/arbol/listado}" class="btn btn-primary">
-                            <i class="fas fa-arrow-left"></i>[[#{accion.regresar}]]
-                        </a>
-                    </div>
-                    <div class="col-md-4 d-grid">                                
-                        <a th:href="@{/arbol/eliminar/}+${arbol.id}"
-                           class="btn btn-danger">
-                            <i class="fas fa-trash"></i>[[#{accion.eliminar}]]
-                        </a>
-                    </div>
-                    <div class="col-md-4 d-grid">
-                        <button type="submit" class="btn btn-success">
-                            <i class="fas fa-check"></i>[[#{accion.guardar}]]
-                        </button>
+        <!-- 3 Sección principal para mostrar la informaccion de la entidad arbol -->
+        <section  th:fragment="listadoNoticias" id="noticias">
+            <div style="background-color: #FFEFEF;">
+                <h2 class="text-center">Lista de personas donadores</h2>
+
+                <div class="row justify-content-center">
+                    <div class="col-md-9">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4 class="text-center">Listado</h4>
+                                <a th:href="@{/noticia/nuevo}" class="btn btn-primary border-0" type="button" style="background-color: #993955;">
+                                    <i>Agregar donador</i>
+                                </a>
+                            </div>
+                            <div th:if="${noticias != null and !noticias.empty}">
+                                <table class="table">
+                                    <thead class="table-light">
+                                        <tr>
+                                            <th class="text-center" scope="col">#</th>
+                                            <th class="text-center" scope="col">descripcion</th>
+                                            <th class="text-center" scope="col">Acciones</th> <!-- Nueva columna para el botón -->
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr th:each="noticia, contador : ${noticias}">
+                                            <td class="text-center" th:text="${contador.count}"></td>
+                                            <td class="text-center" th:text="${noticia.descripcion}"></td>
+                                            <td class="text-center">
+                                                <a th:href="@{/noticia/eliminar/}+${noticia.id_noticia}" class="btn btn-primary border-0" type="button" style="background-color: #993955;">
+                                                    <i>Eliminar</i>
+                                                </a>
+                                                <a th:href="@{/noticia/modificar/}+${noticia.id_noticia}" class="btn btn-primary border-0" type="button" style="background-color: #993955;">
+                                                    <i>Modificar</i>
+                                                </a>
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="text-center p-2" th:if="${noticias == null or noticias.empty}">
+                                <span>lista vacía</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
-
-        <footer th:fragment="footer">
-            <div style="background-color: white;">
-                <div class="row row-cols-1 row-cols-sm-2 row-cols-md-5 py-5  ">
-                    <div class="col mb-3">
-                        <a href="/" class="d-flex align-items-center mb-3 link-body-emphasis text-decoration-none">
-                            <svg class="bi me-2" width="50" height="32">
-                                <use xlink:href="#bootstrap"></use>
-                            </svg>
-                        </a>
-                        <p class="text-body-secondary">© ANASOVI 2023</p>
-                    </div>
-                    <div class="col mb-3"></div>
-                    <div class="col mb-3">
-                        <h5>Navegación</h5>
-                        <ul class="nav flex-column">
-                            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Principal</a></li>
-                            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Eventos</a></li>
-                            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Noticias</a></li>
-                            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Donaciones</a></li>
-                            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Nosotros</a></li>
-                        </ul>
-                    </div>
-                    <div class="col mb-3">
-                        <h5>Section</h5>
-                        <ul class="nav flex-column">
-                            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Home</a></li>
-                            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Features</a></li>
-                            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Pricing</a></li>
-                            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">FAQs</a></li>
-                            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">About</a></li>
-                        </ul>
-                    </div>
-                    <div class="col mb-3">
-                        <h5>Section</h5>
-                        <ul class="nav flex-column">
-                            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Home</a></li>
-                            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Features</a></li>
-                            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Pricing</a></li>
-                            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">FAQs</a></li>
-                            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">About</a></li>
-                        </ul>
-                    </div>
-                </div>
+        <section th:fragment="listadoNoticiasCards" style="background-color: #FFEFEF; padding: 4em;">
+            <div style="padding: 1em; margin-left: 30px" >
+                <a th:href="@{/noticia/nuevo}" class="btn btn-primary border-0" type="button" style="background-color: #993955;">
+                    <i>Agregar noticia</i>
+                </a> 
             </div>
-        </footer>
+            <div class="row row-cols-4">    
+
+                <div class="card p-4" th:each="noticia : ${noticias}">
+                    <figure>
+                        <img th:src="${noticia.ruta_imagen}" class="card-img-top" height="200" alt="..."/>  
+                    </figure>
+                    <div class="card-header">
+                        [[${noticia.descripcion}]]
+
+                    </div>
+                    <div class="card-body">
+                        <a th:href="@{/noticia/eliminar/}+${noticia.id_noticia}" class="btn btn-primary border-0" type="button" style="background-color: #993955;">
+                            <i>Eliminar</i>
+                        </a>
+                        <a th:href="@{/noticia/modificar/}+${noticia.id_noticia}" class="btn btn-primary border-0" type="button" style="background-color: #993955;">
+                            <i>Modificar</i>
+                        </a>
+
+                    </div>
+                </div>                   
+            </div>        
+        </section>
+
     </body>
 </html>
