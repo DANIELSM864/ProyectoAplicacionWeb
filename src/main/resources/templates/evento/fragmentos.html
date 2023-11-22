@@ -1,33 +1,13 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
-<head th:fragment="head">
-    <title>Anasovi</title>
-    <meta charset="UTF-8"/>
-    <link th:href="@{/webjars/bootstrap/css/bootstrap.min.css}" rel="stylesheet"/>
-    <link th:href="@{/webjars/font-awesome/css/all.css}" rel="stylesheet"/>
-    <script th:src="@{/webjars/jquery/jquery.min.js}"></script>
-    <script th:src="@{/webjars/popper.js/umd/popper.min.js}"></script>
-    <script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
-    <link th:href="@{/static/css/style.css}" rel="stylesheet" type="text/css"/>
-</head>
-<body style="background-color: #FFEFEF;">
-    <div th:fragment="header">
-        <div class="col-lg-12">
-            <div style="background-color: #993955; width: 100%;" class="d-flex justify-content-center py-3">
-                <ul class="nav nav-pills" style="margin: 0px 40px;">
-                    <li class="nav-item"><a href="#" class="nav-link fw-bold" style="color: #0F0326;"
-                            aria-current="page">Principal</a></li>
-                    <li class="nav-item"><a th:href="@{/nosotros/paginaNosotros}" class="nav-link  fw-bold" style="color: #0F0326;">Nosotros</a></li>
-                        <li class="nav-item"><a th:href="@{/noticia/paginaNoticia}" class="nav-link  fw-bold" style="color: #0F0326;">Noticias</a></li>
-                        <li class="nav-item"><a th:href="@{/evento/paginaEvento}" class="nav-link  fw-bold" style="color: #0F0326;">Eventos</a></li>
-                        <li class="nav-item"><a th:href="@{/donacion/paginaDonacion}" class="nav-link  fw-bold" style="color: #0F0326;">Donaciones</a></li>
-                        <li class="nav-item"><a th:href="@{/informate/paginaInformate}" class="nav-link  fw-bold" style="color: #0F0326;">Informate</a></li>
-                </ul>
-            </div>
-        </div>
-    </div>
+<html xmlns="http://www.w3.org/1999/xhtml" 
+      xmlns:th="http://www.thymeleaf.org">
+    <head th:fragment="head">
+        <title>Anasovi</title>
 
-    <main th:fragment="main" style="display: flex; background-color: #FFEFEF">
+    </head>
+    <body style="background-color: #FFEFEF;">
+
+    <section th:fragment="informacion" style="display: flex; background-color: #FFEFEF">
         <aside style="width: 70%; margin-left: 180px; ">
             <!-- Contenido del aside aquí -->
             <h2 style="text-align: center; margin: 30px 0;">Eventos</h2>
@@ -54,70 +34,7 @@
                 </div>
            
 
-            <!-- Agregar Lorem Ipsum debajo de las imágenes -->
-        <div th:fragment="infoabajo" style="background-color: white; border-radius: 20px; padding: 20px; margin: 20px 0;">
-    <h4>Últimos Eventos</h4>
-
-    <!-- Evento 1 -->
-    <div th:fragment="evento1" style="margin-top: 20px; border: 1px solid #ccc; padding: 10px; border-radius: 10px;">
-        <h4>¡Juntos contra el Cáncer!</h4>
-        <div style="display: flex; justify-content: space-between;">
-            <div style="width: 30%;">
-                <img src="https://anasovi.org/wp-content/uploads/2023/06/Anasovi-JUNTOS-CONTRA-EL-CANCER-300x300.jpeg" alt="" style="width: 100%;">
-            </div>
-            <div style="width: 70%;">
-                <h5>Descripción</h5>
-                <div style="background-color: #f2f2f2; padding: 10px; border-radius: 10px;">
-                    <p> Estaremos juntos para concienciar, apoyar y trabajar juntos en la lucha contra esta enfermedad devastadora. Esta es una oportunidad para aprender, compartir experiencias y contribuir a una causa noble.
-Fecha: Junio 13, 2023 Hora: 5:30 PM - 7:30 PM Web: Visita nuestro evento en FacebookOrganizador: Anasovi</p>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Evento 2 -->
-    <div th:fragment="evento2" style="margin-top: 20px; border: 1px solid #ccc; padding: 10px; border-radius: 10px;">
-        <h4>Cáncer de Próstata</h4>
-        <div style="display: flex; justify-content: space-between;">
-            <div style="width: 30%;">
-                <img src="https://anasovi.org/wp-content/uploads/2023/06/1-MOLACAP-calidad-de-vida-cancer-prostata-1-300x251.png" alt="" style="width: 100%;">
-            </div>
-            <div style="width: 70%;">
-                <h5>Descripción</h5>
-                <div style="background-color: #f2f2f2; padding: 10px; border-radius: 10px;">
-                    <p>Cómo mejorar la calidad de vida de pacientes con cáncer de próstata
-
-Fecha: Junio 8, 2023
-Hora: 5:00 PM - 7:00 PM
-Web: Registro del evento en Zoom
-
-Organizador: MOLACAP
-
-Este evento está diseñado para proporcionar información valiosa y recursos para mejorar la calidad de vida de los pacientes con cáncer de próstata y sus seres queridos. </p>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Evento 3 -->
-    <div th:fragment="evento3" style="margin-top: 20px; border: 1px solid #ccc; padding: 10px; border-radius: 10px;">
-        <h4>Charla</h4>
-        <div style="display: flex; justify-content: space-between;">
-            <div style="width: 30%;">
-                <img src="https://anasovi.org/wp-content/uploads/2022/08/301647517_10161333671560695_8138406547611289650_n.jpg" alt="" style="width: 100%;">
-            </div>
-            <div style="width: 70%;">
-                <h5>Descripción</h5>
-                <div style="background-color: #f2f2f2; padding: 10px; border-radius: 10px;">
-                    <p>Charla "Hepatocarcinoma: del diagnóstico al tratamiento" Nuestros expertos discutirán las últimas investigaciones, avances médicos y terapias disponibles para abordar esta enfermedad. 
-
-Fecha: 01 de septiembre de 2022
-Hora: 5:00 PM - 7:00 PM
-
-Etiquetas del Evento: Evento, Zoom</p>
-                </div>
-            </div>
-        </div>
+            
     </div>
     
 
@@ -126,52 +43,210 @@ Etiquetas del Evento: Evento, Zoom</p>
 
         </aside>
 
-    </main>
+    </section>
 
-    <footer th:fragment="footer">
-        <div style="background-color: white;">
-            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-5 py-5  ">
-                <div class="col mb-3">
-                    <a href="/" class="d-flex align-items-center mb-3 link-body-emphasis text-decoration-none">
-                        <svg class="bi me-2" width="50" height="32">
-                            <use xlink:href="#bootstrap"></use>
-                        </svg>
-                    </a>
-                    <p class="text-body-secondary">© ANASOVI 2023</p>
-                </div>
-                <div class="col mb-3"></div>
-                <div class="col mb-3">
-                    <h5>Navegación</h5>
-                    <ul class="nav flex-column">
-                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Principal</a></li>
-                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Eventos</a></li>
-                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Noticias</a></li>
-                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Donaciones</a></li>
-                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Nosotros</a></li>
-                    </ul>
-                </div>
-                <div class="col mb-3">
-                    <h5>Section</h5>
-                    <ul class="nav flex-column">
-                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Home</a></li>
-                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Features</a></li>
-                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Pricing</a></li>
-                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">FAQs</a></li>
-                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">About</a></li>
-                    </ul>
-                </div>
-                <div class="col mb-3">
-                    <h5>Section</h5>
-                    <ul class="nav flex-column">
-                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Home</a></li>
-                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Features</a></li>
-                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Pricing</a></li>
-                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">FAQs</a></li>
-                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">About</a></li>
-                    </ul>
+     <section th:fragment="agregarEvento">
+            <div class="row">
+                <div class="col-md-2"></div>
+                <div class="col-md-8">
+                    <form method="POST"
+                          th:action="@{/evento/guardar}" 
+                          th:object="${evento}"                         
+                          enctype="multipart/form-data">
+                        <div id=details>
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col">
+                                        <div class="card">
+                                            <div class="card-header">
+                                                <h4>Añadir evento</h4>
+                                            </div>
+                                            <div class="card-body">
+                                                <div class="mb-3">
+                                                    <label for="titulo">titulo</label>
+                                                    <input type="text" class="form-control" 
+                                                           name="titulo" 
+                                                           required="true">
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label for="descripcion">descripcion</label>
+                                                    <input type="text" class="form-control" 
+                                                           name="descripcion" 
+                                                           required="true">
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label for="imagen">Imagen</label>
+                                                    <input class="form-control" type="file" name="imagenFile" onchange="readURL(this);"/>
+                                                    <img id="blah" src="#" alt="your image" height="200"/>
+                                                </div>
+                                                <div class="container py-4 mb-4">
+                                                    <div class="row">
+                                                        <div class="col-md-4 d-grid mx-auto">
+                                                            <a style="background-color: #993955;" th:href="@{/evento/paginaEvento}" class="btn btn-primary border-0">
+                                                                <i class="fas fa-arrow-left"></i> Regresar
+                                                            </a>
+                                                        </div>
+
+                                                        <div class="col-md-4 d-grid mx-auto">
+                                                            <button th:href="@{/evento/paginaEvento}" style="background-color: #993955;" class="btn btn-primary border-0" type="submit">
+                                                                <i class="fas fa-check"></i> Guardar
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
                 </div>
             </div>
-        </div>
-    </footer>
-</body>
+        </section>
+        <section th:fragment="editarEvento">
+            <div class="row">
+                <div class="col-md-2"></div>
+                <div class="col-md-8">
+                    <form method="POST"
+                          th:action="@{/evento/guardar}" 
+                          th:object="${evento}"                         
+                          enctype="multipart/form-data">
+                        <div id=details>
+                            <input type="hidden" name="id_eventos" th:field="*{id_eventos}"/>
+                            <input type="hidden" name="ruta_imagen" th:field="*{ruta_imagen}"/>
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col">
+                                        <div class="card">
+                                            <div class="card-header">
+                                                <h4>Actualizar</h4>
+                                            </div>
+                                            <div class="card-body">
+                                                <div class="mb-3">
+                                                    <label for="titulo">titulo</label>
+                                                    <input type="text" class="form-control" 
+                                                           name="titulo" th:field="*{titulo}"
+                                                           required="true">
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label for="descripcion">descripcion</label>
+                                                    <input type="text" class="form-control" 
+                                                           name="descripcion" th:field="*{descripcion}"
+                                                           required="true">
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label for="imagen">Imagen</label>
+                                                    <input class="form-control" type="file" name="imagenFile"
+                                                           onchange="readURL(this);" />
+                                                    <img id="blah" th:src="@{${evento.ruta_imagen}}" alt="your image" height="200"/>
+                                                </div>
+                                                <div class="container py-4 mb-4">
+                                                    <div class="row">
+                                                        <div class="col-md-4 d-grid mx-auto">
+                                                            <a style="background-color: #993955;" th:href="@{/evento/paginaEvento}" class="btn btn-primary border-0">
+                                                                <i class="fas fa-arrow-left"></i> Regresar
+                                                            </a>
+                                                        </div>
+
+                                                        <div class="col-md-4 d-grid mx-auto">
+                                                            <button style="background-color: #993955;" class="btn btn-primary border-0" type="submit">
+                                                                <i class="fas fa-check"></i> Guardar
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3 Sección principal para mostrar la informaccion de la entidad arbol -->
+        <section  th:fragment="listadoEventos" id="eventos">
+            <div style="background-color: #FFEFEF;">
+                <h2 class="text-center">Lista de personas donadores</h2>
+
+                <div class="row justify-content-center">
+                    <div class="col-md-9">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4 class="text-center">Listado</h4>
+                                <a th:href="@{/evento/nuevo}" class="btn btn-primary border-0" type="button" style="background-color: #993955;">
+                                    <i>Agregar donador</i>
+                                </a>
+                            </div>
+                            <div th:if="${eventos != null and !eventos.empty}">
+                                <table class="table">
+                                    <thead class="table-light">
+                                        <tr>
+                                            <th class="text-center" scope="col">#</th>
+                                            <th class="text-center" scope="col">descripcion</th>
+                                            <th class="text-center" scope="col">Acciones</th> <!-- Nueva columna para el botón -->
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr th:each="evento, contador : ${eventos}">
+                                            <td class="text-center" th:text="${contador.count}"></td>
+                                            <td class="text-center" th:text="${evento.descripcion}"></td>
+                                            <td class="text-center">
+                                                <a th:href="@{/evento/eliminar/}+${evento.id_eventos}" class="btn btn-primary border-0" type="button" style="background-color: #993955;">
+                                                    <i>Eliminar</i>
+                                                </a>
+                                                <a th:href="@{/evento/modificar/}+${evento.id_eventos}" class="btn btn-primary border-0" type="button" style="background-color: #993955;">
+                                                    <i>Modificar</i>
+                                                </a>
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="text-center p-2" th:if="${eventos == null or eventos.empty}">
+                                <span>lista vacía</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section th:fragment="listadoEventosCards" style="background-color: #FFEFEF; padding: 4em;">
+            <div style="padding: 1em; margin-left: 30px" >
+                <a th:href="@{/evento/nuevo}" class="btn btn-primary border-0" type="button" style="background-color: #993955;">
+                    <i>Agregar evento</i>
+                </a> 
+            </div>
+            <div class="row row-cols-4">    
+
+                <div class="card p-4" th:each="evento : ${eventos}">
+                    <figure>
+                        <img th:src="${evento.ruta_imagen}" class="card-img-top" height="200" alt="..."/>  
+                    </figure>
+                    <div class="card-header">
+
+                        [[${evento.titulo}]]
+                    </div>
+                    <div class="card-body">   
+                        [[${evento.descripcion}]]
+                    </div>
+                    <div class="card-body">
+                        <a th:href="@{/evento/eliminar/}+${evento.id_eventos}" class="btn btn-primary border-0" type="button" style="background-color: #993955;">
+                            <i>Eliminar</i>
+                        </a>
+                        <a th:href="@{/evento/modificar/}+${evento.id_eventos}" class="btn btn-primary border-0" type="button" style="background-color: #993955;">
+                            <i>Modificar</i>
+                        </a>
+
+                    </div>
+                </div>                   
+            </div>        
+        </section>
+
+    </body>
 </html>
