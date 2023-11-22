@@ -8,6 +8,7 @@ import com.Anasovi.Anasovi.domain.Noticia;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 
-public interface NoticiaDao extends JpaRepository <Noticia, Long>{
+public interface NoticiaDao 
+        extends JpaRepository <Noticia, Long>{
 
 }

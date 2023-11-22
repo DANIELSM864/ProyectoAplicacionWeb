@@ -5,6 +5,7 @@ import com.Anasovi.Anasovi.service.NoticiaService;
 import com.Anasovi.Anasovi.service.impl.FirebaseStorageServiceImpl;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -33,33 +34,32 @@ public class NoticiaController {
     // Endpoint para crear una nueva noticia
     @GetMapping("/nuevo")
     public String noticiaNueva(Noticia noticia) {
-        return "noticia/modifica"; // Ajusta el nombre de la vista según tu estructura
+        return "noticia/agrega"; // Ajusta el nombre de la vista según tu estructura
     }
 
     @Autowired
     private FirebaseStorageServiceImpl firebaseStorageService;
 
-    // Endpoint para guardar una noticia
     @PostMapping("/guardar")
     public String noticiaGuardar(Noticia noticia,
-                                 @RequestParam("imagenFile") MultipartFile imagenFile) {
+            @RequestParam("imagenFile") MultipartFile imagenFile) {
         if (!imagenFile.isEmpty()) {
-            noticia.setRuta_imagen(firebaseStorageService.cargaImagen(
-                    imagenFile,
-                    "noticia",
-                    noticia.getId_noticia()));
-
-            // Guardar la noticia después de configurar la ruta de la imagen
             noticiaService.save(noticia);
+            noticia.setRuta_imagen(
+                    firebaseStorageService.cargaImagen(
+                            imagenFile,
+                            "noticia",
+                            noticia.getId_noticia()));
         }
-        return "noticia/paginaNoticia"; // Redirige al listado de noticias después de guardar
+        noticiaService.save(noticia);
+        return "redirect:/noticia/paginaNoticia"; // Redirige al listado de noticias después de guardar
     }
 
     // Endpoint para eliminar una noticia
     @GetMapping("/eliminar/{id_noticia}")
     public String noticiaEliminar(Noticia noticia) {
         noticiaService.delete(noticia);
-        return "noticia/paginaNoticia"; // Redirige al listado de noticias después de eliminar
+        return "redirect:/noticia/paginaNoticia";// Redirige al listado de noticias después de eliminar
     }
 
     // Endpoint para modificar una noticia existente

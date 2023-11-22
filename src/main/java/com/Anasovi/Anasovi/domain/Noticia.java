@@ -13,22 +13,11 @@ public class Noticia implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_noticia")
     private Long id_noticia;
     
     private String descripcion;
-    
     private String ruta_imagen;
 
-
-
-    public Noticia() {
-
-    }
-public Noticia(Long id_noticia, String descripcion, String ruta_imagen) {
-        this.id_noticia = id_noticia;
-        this.descripcion = descripcion;
-        this.ruta_imagen = ruta_imagen;
-        
-    }
 }

@@ -7,10 +7,12 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
     <head th:replace="~{layout/plantilla::head}"></head>
     <body>
         <header th:replace="~{layout/plantilla::header}"></header>
-        <main th:replace="~{noticia/fragmentos :: main}"/>
-         <section th:replace="~{noticia/fragmentos :: botonesAgregar}"/>
-        <section th:replace="~{noticia/fragmentos :: agregarNoticia}"/>
+
+        <section th:replace="~{noticia/fragmentos :: info}"/>
+
         <section th:replace="~{noticia/fragmentos :: listadoNoticias}"/>
+
         <footer th:replace="~{layout/plantilla::footer}"></footer>
+
     </body>
 </html>

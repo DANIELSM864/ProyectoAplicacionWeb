@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package com.Anasovi.Anasovi.service.impl;
 
 import com.Anasovi.Anasovi.dao.NoticiaDao;
@@ -22,9 +18,7 @@ public class NoticiaServiceImpl implements NoticiaService {
     @Transactional(readOnly = true)
     public List<Noticia> getNoticias(boolean activo) {
         var noticias = noticiaDao.findAll();
-        if (activo) {
-            
-        }
+        
         return noticias;
     }
 
