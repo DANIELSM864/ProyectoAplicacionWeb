@@ -30,17 +30,15 @@
     <main th:fragment="main" style="display: flex; background-color: #FFEFEF">
         <aside style="width: 70%; margin-left: 180px; ">
             <!-- Contenido del aside aquí -->
-            <h3 style="margin: 20px 0"> Infórmate</h3>
+            <h3 style="margin: 20px 0"> [[#{informate.informateTitulo}]]</h3>
             <div style="background-color: white; border-radius: 20px; padding: 20px; margin: 10px 0;">
-                <h4>Cáncer Renal</h4>
-                <p>Este se origina cuando las células sanas de un riñon o de ambos cambian y crecen sin control, 
-                    estos forman una masa llamada tumor cortical renal, este tumor puede ser maligno, por ende es canceroso, 
-                    lo que significa que puede crecer y diseminarse a otras partes del cuerpo.</p>
+                <h4>[[#{informate.cancerRenalTitulo}]]</h4>
+                <p>[[#{informate.cancerRenalDesc}]]</p>
             </div>
 
             <!-- Sección para imágenes -->
             <div th:fragment="imagenes" style="margin-top: 20px;">
-                <h3>Imágenes</h3>
+                <h3>[[#{informate.imagenesTitulo}]]</h3>
                 <div style="display: flex; justify-content: space-between;">
                     <div style="width: 45%;">
                         <figure>
@@ -69,10 +67,8 @@
 
             <!-- Agregar Lorem Ipsum debajo de las imágenes -->
             <div th:fragment="infoabajo" style="background-color: white; border-radius: 20px; padding: 20px; margin: 20px 0;">
-                <h4>Prevenciones para el Cáncer Renal</h4>
-                <p>se puede realizar cambios de dieta y llevar un control de peso adecuado, 
-                    asi como evitar fumar y realizar exámenes médicos regulares. 
-                    En caso de tener hipertensión tambien llevar un control de este. </p>
+                <h4>[[#{informate.prevencionesTitulo}]]</h4>
+                <p>[[#{informate.prevencionesDesc}]] </p>
             </div>
         </aside>
 

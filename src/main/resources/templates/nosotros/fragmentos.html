@@ -30,21 +30,21 @@
         <main th:fragment="main" style="display: flex; background-color: #FFEFEF">
             <aside style="width: 70%; margin-left: 70px;">
                 <!-- Contenido del aside aquí -->
-                <h3 style="margin: 50px 0" class="text-center"> Contacte con Nosotros</h3>
+                <h3 style="margin: 50px 0" class="text-center"> [[#{nosotros.contacteTitulo}]]</h3>
 
                 <div style="background-color: #f2f2f2; border-radius: 5px; padding: 20px; margin: 10px 10px 50px 0;">
-                    <h4>Representante Legal</h4>
+                    <h4>[[#{nosotros.representanteLegalTitulo}]]</h4>
                     <p>Juan Pedro Sanchez<br>
                             +506 8423 1329<br>
                                 juanpedro123@gmail.com
                                 </p>
-                                <h4>Contactos Adicionales</h4>
+                                <h4>[[#{nosotros.contactosAdicioTitulo}]]</h4>
                                 <p>Maria Antonieta Vidal<br>
                                         +506 8412 4529<br>
                                             mariaantonieta123@gmail.com
                                             </p>
-                                            <h4>Ubicanos</h4>
-                                            <p>Frente a parque de guadalupe contiguo a correos de Costa Rica</p>
+                                            <h4>[[#{nosotros.ubicanosTitulo}]]</h4>
+                                            <p>[[#{nosotros.ubicanosDesc}]]</p>
                                             <iframe
                                                 width="600"
                                                 height="450"
@@ -55,7 +55,7 @@
                                             </iframe>
                                             </div>
                                             <div style="text-align: left; margin-top: 20px;">
-                                                <h4>Síguenos en redes sociales:</h4>
+                                                <h4>[[#{nosotros.redesTitulo}]]</h4>
                                                 <div style="display: flex; justify-content: left;">
                                                     <a href="https://www.facebook.com/" target="_blank">
                                                         <img src="ruta-de-tu-imagen-facebook.jpg" alt="Facebook" style="width: 30px; height: 30px; margin: 0 10px;">
@@ -69,23 +69,21 @@
                                                     <!-- Añade otros enlaces y logotipos de redes sociales según sea necesario -->
                                                 </div>
                                                 <div style="text-align: left; margin-top: 20px;">
-                                                    <h4>Nosotros:</h4>
-                                                    <p>Su inicio en el 2006 es motivado con el primer recurso de amparo<br>
-                                                            a favor de una de sus fundadoras, Cintia Solano elaborado por su madre<br>
-                                                                Briselda Castillo, un diagnostico de cancer fue la motivacion para su formacion
+                                                    <h4>[[#{nosotros.nosotrosTitulo}]]</h4>
+                                                    <p>[[#{nosotros.nosotrosDesc}]]
                                                                 </aside>
 
                                                                 <div style="flex: 1;">
                                                                     <!-- Código para el rectángulo vertical a la derecha -->
                                                                     <div style="background-color: #f2f2f2; border-radius: 5px; padding: 20px; margin: 140px 0 50px 10px;">
-                                                                        <h4>Formulario de Contacto</h4>
-                                                                        <label for="nombre">Nombre:</label><br>
+                                                                        <h4>[[#{nosotros.formularioContactoTitulo}]]</h4>
+                                                                        <label for="nombre">[[#{nosotros.formularioContactoNombre}]]</label><br>
                                                                             <input type="text" id="nombre" name="nombre"><br><br>
-                                                                                        <label for="correo">Correo:</label><br>
+                                                                                        <label for="correo">[[#{nosotros.formularioContactoCorreo}]]</label><br>
                                                                                             <input type="text" id="correo" name="correo"><br><br>
-                                                                                                        <label for="asunto">Asunto:</label><br>
+                                                                                                        <label for="asunto">[[#{nosotros.formularioContactoAsunto}]]</label><br>
                                                                                                             <input type="text" id="asunto" name="asunto"><br><br>
-                                                                                                                        <label for="asunto">Consulta:</label><br>
+                                                                                                                        <label for="asunto">[[#{nosotros.formularioContactoConsulta}]]</label><br>
                                                                                                                             <input type="text" id="consulta" name="consulta"><br><br>
                                                                                                                         <!-- Agrega más etiquetas y cajas de texto según sea necesario -->
                                                                                                                         </div>

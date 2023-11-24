@@ -5,14 +5,17 @@
         <title>TODO supply a title</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
     </head>
     <body>
+        
         <section style="background-color: #FFEFEF;" th:fragment="section">
+            
             <div style="padding-top: 50px;">
                 <figure style="text-align: center; margin: 0; border: none;">
                     <div style="display: inline-block;">
                         <iframe width="1540" height="570" src="https://www.youtube.com/embed/1OX7BcPeG_s"
-                                title="Anasovi ha ayudado a más de 500 pacientes con cáncer" frameborder="0"
+                                title="[[#{principal.videoTitulo}]]" frameborder="0"
                                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                                 allowfullscreen style="margin: 0 auto;">
 
@@ -27,49 +30,38 @@
 
             <aside style="width: 70%; margin-left: 180px; ">
                 <!-- Contenido del aside aquí -->
-                <h3 style="margin: 20px 0"> ¿Quiénes somos y que estamos haciendo?</h3>
+                <h3 style="margin: 20px 0">[[#{principal.quienessomos}]]</h3>
                 <div style="background-color: white; border-radius: 20px; padding: 20px; margin: 10px 0;">
-                    <h4>Misión de nuestra página</h4>
-                    <p>Informar, educar a cerca de los derechos de los pacientes, la calidad, eficacia y 
-                        seguridad de los tratamientos que tenemos derechos a utilizar. Lograr el acceso oportuno 
-                        a pacientes con necesidades de atención medica, mediante la defensa efectiva de sus derechos 
-                        por una mejor calidad de Vida.</p>
+                    <h4>[[#{principal.misionTitulo}]]</h4>
+                    <p>[[#{principal.misionDesc}]]</p>
                 </div>
                 <div style="background-color: white; border-radius: 20px; padding: 20px; margin: 20px 0;">
-                    <h4>Visión de nuestra página</h4>
-                    <p>Somos la Asociación líder en el país que vela por los derechos de los pacientes con enfermedades criticas, crónicas y degenerativas.
-                        Somos expertas en el acceso a medicamentos de alto costo, cirugías y citas.</p>
+                    <h4>[[#{principal.visionTitulo}]]</h4>
+                    <p>[[#{principal.visionDesc}]]</p>
                 </div>
                 <div style="background-color: white; border-radius: 20px; padding: 20px; margin: 20px 0;">
-                    <h4>Nuestro objetivo</h4>
-                    <p>El acceso oportuno a pacientes con enfermedades críticas, crónica y degenerativas.</p>
+                    <h4>[[#{principal.objetivoTitulo}]]</h4>
+                    <p>[[#{principal.objetivoDesc}]]</p>
                 </div>
                 <div style="background-color: white; border-radius: 20px; padding: 20px; margin: 20px 0;">
-                    <h4>Patologías que tratamos</h4>
-                    <p>Críticas, crónicas y degenerativas</p>
+                    <h4>[[#{principal.patologiasTitulo}]]</h4>
+                    <p>[[#{principal.patologiasDesc}]]</p>
                 </div>
                 <div style="background-color: white; border-radius: 20px; padding: 20px; margin: 20px 0;">
-                    <h4>Nuestros servicios</h4>
-                    <p>Educación
-                        Defensa de derechos.
-                        Asesoramiento legal.
-                        Acompañamiento.</p>
+                    <h4>[[#{principal.serviciosTitulo}]]</h4>
+                    <p>[[#{principal.serviciosDesc}]]</p>
                 </div>
                 <div style="background-color: white; border-radius: 20px; padding: 20px; margin: 20px 0;">
-                    <h4>Cobertura</h4>
-                    <p>Todo el país.</p>
+                    <h4>[[#{principal.coberturaTitulo}]]</h4>
+                    <p>[[#{principal.coberturaDesc}]]</p>
                 </div>
                 <div style="background-color: white; border-radius: 20px; padding: 20px; margin: 20px 0;">
-                    <h4>Servicios para pacientes</h4>
-                    <p>Charlas educativas a pacientes con enfermedades critica, crónica y degenerativas, con el objetivo de empoderarlos del manejo de su enfermedad y tratamiento. 
-                        Acompañamos a los pacientes y familiares en el sistema de salud.
-                        Seguimiento al paciente y su familia durante el proceso de la enfermedad. 
-                        Información actualizada a través de las Redes Sociales sobre temas de interés. 
-                        Apoyamos a los pacientes de las ONG´s  de Centroamericano y el Caribe.</p>
+                    <h4>[[#{principal.serviciosClientesTitulo}]]</h4>
+                    <p>[[#{principal.serviciosClientesDesc}]]</p>
                 </div>
             </aside>
             <aside style="width: 25%; margin-right: 180px;">
-                <h3 style="margin: 20px 0"> Nuestros servicios </h3>
+                <h3 style="margin: 20px 0"> [[#{principal.nuestrosServiciosImagenes}]] </h3>
 
                 <figure>
                     <img src="https://lh3.googleusercontent.com/oTShy_HktAfVCj1Y8D8BCMs6v_Qd0LgHEujh7M8OIXGLilI-9lk2L9UzudAeBEurIKO7dRwyqhfpNL3I8LhcxuL5KrC8XSvA5VCQT7YYCW8-rPXjTbF5XjnpZtpA_nCjUEOsfveQ8_BOETA_ovtc2-QRviw8" width="356" height="200" alt="alt"/>

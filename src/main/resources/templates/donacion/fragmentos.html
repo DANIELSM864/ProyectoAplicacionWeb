@@ -12,17 +12,15 @@
         <section th:fragment="informacion" style="display: flex; background-color: #FFEFEF">
             <aside style="width: 70%; margin-left: 180px;">
                 <div style="background-color: #FFEFEF;">
-                    <h3 style="margin: 20px 0">Donaciones</h3>
+                    <h3 style="margin: 20px 0">[[#{donaciones.donacionesTitulo}]]</h3>
 
-                    <h4>¿Deseas realizar una donación?</h4>
+                    <h4>[[#{donaciones.deseasDonacionesTitulo}]]</h4>
                     <div style="background-color: white; border-radius: 20px; padding: 20px; margin: 10px 0;">
-                        <p>Puedes realizar una donación anónima poniendo anónimo en la descripción de la transacción y será apreciada ya que ayudará con 
-                            nuestro trabajo y las personas involucradas en nuestro trabajo, o puedes poner tu nombre en la descripción de la transacción 
-                            y podrías aparecer como muestra de agradecimiento en la lista de donadores. </p>
+                        <p>[[#{donaciones.deseasDonacionesDesc}]] </p>
                     </div>
 
 
-                    <h4 style="margin-top: 40px">Información para donación</h4>
+                    <h4 style="margin-top: 40px">[[#{donaciones.inforParaDonacionTitulo}]]</h4>
                     <figure>
                         <img src="https://anasovi.org/wp-content/uploads/2022/09/WhatsApp-Image-2022-08-31-at-10.40.29-PM-768x768.jpeg" alt="Texto alternativo">
                     </figure>                          </div>
@@ -32,15 +30,15 @@
         <section  th:fragment="listadoDonadores" id="donacions">
 
             <div style="background-color: #FFEFEF;">
-                <h2 class="text-center">Lista de personas donadores</h2>
+                <h2 class="text-center">[[#{donaciones.listaDonadoresTitulo}]]</h2>
 
                 <div class="row justify-content-center">
                     <div class="col-md-9">
                         <div class="card">
                             <div class="card-header">
-                                <h4 class="text-center">Listado</h4>
+                                <h4 class="text-center">[[#{donaciones.listaTitulo}]]</h4>
                                 <a th:href="@{/donacion/nuevoD}" class="btn btn-primary border-0" type="button" style="background-color: #993955;">
-                                    <i>Agregar donador</i>
+                                    <i>[[#{donaciones.agregarDonador}]]</i>
                                 </a>
                             </div>
                             <div th:if="${donacions != null and !donacions.empty}">
@@ -74,7 +72,7 @@
 
                             </div>
                             <div class="text-center p-2" th:if="${donacions == null or donacions.empty}">
-                                <span>lista vacía</span>
+                                <span>[[#{donaciones.listaVacia}]]</span>
                             </div>
                         </div>
                     </div>
