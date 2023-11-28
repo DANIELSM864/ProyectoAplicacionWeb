@@ -11,23 +11,7 @@
         <link th:href="@{/static/css/style.css}" rel="stylesheet" type="text/css"/>
     </head>
     <body style="background-color: #FFEFEF;">
-        <div th:fragment="header">
-            <div class="col-lg-12">
-                <div style="background-color: #993955; width: 100%;" class="d-flex justify-content-center py-3">
-                    <ul class="nav nav-pills" style="margin: 0px 40px;">
-                        <li class="nav-item"><a href="#" class="nav-link fw-bold" style="color: #0F0326;"
-                                                aria-current="page">Principal</a></li>
-                        <li class="nav-item"><a th:href="@{/nosotros/paginaNosotros}" class="nav-link  fw-bold" style="color: #0F0326;">Nosotros</a></li>
-                        <li class="nav-item"><a th:href="@{/noticia/paginaNoticia}" class="nav-link  fw-bold" style="color: #0F0326;">Noticias</a></li>
-                        <li class="nav-item"><a th:href="@{/evento/paginaEvento}" class="nav-link  fw-bold" style="color: #0F0326;">Eventos</a></li>
-                        <li class="nav-item"><a th:href="@{/donacion/paginaDonacion}" class="nav-link  fw-bold" style="color: #0F0326;">Donaciones</a></li>
-                        <li class="nav-item"><a th:href="@{/informate/paginaInformate}" class="nav-link  fw-bold" style="color: #0F0326;">Informate</a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-
-        <main th:fragment="main" style="display: flex; background-color: #FFEFEF">
+        <section th:fragment="main" style="display: flex; background-color: #FFEFEF">
             <aside style="width: 70%; margin-left: 70px;">
                 <!-- Contenido del aside aquí -->
                 <h3 style="margin: 50px 0" class="text-center"> [[#{nosotros.contacteTitulo}]]</h3>
@@ -71,82 +55,38 @@
                                                 <div style="text-align: left; margin-top: 20px;">
                                                     <h4>[[#{nosotros.nosotrosTitulo}]]</h4>
                                                     <p>[[#{nosotros.nosotrosDesc}]]
-                                                                </aside>
+                                                        </aside>
 
-                                                                <div style="flex: 1;">
-                                                                    <!-- Código para el rectángulo vertical a la derecha -->
-                                                                    <div style="background-color: #f2f2f2; border-radius: 5px; padding: 20px; margin: 140px 0 50px 10px;">
-                                                                        <h4>[[#{nosotros.formularioContactoTitulo}]]</h4>
-                                                                        <label for="nombre">[[#{nosotros.formularioContactoNombre}]]</label><br>
-                                                                            <input type="text" id="nombre" name="nombre"><br><br>
-                                                                                        <label for="correo">[[#{nosotros.formularioContactoCorreo}]]</label><br>
-                                                                                            <input type="text" id="correo" name="correo"><br><br>
-                                                                                                        <label for="asunto">[[#{nosotros.formularioContactoAsunto}]]</label><br>
-                                                                                                            <input type="text" id="asunto" name="asunto"><br><br>
-                                                                                                                        <label for="asunto">[[#{nosotros.formularioContactoConsulta}]]</label><br>
-                                                                                                                            <input type="text" id="consulta" name="consulta"><br><br>
-                                                                                                                        <!-- Agrega más etiquetas y cajas de texto según sea necesario -->
-                                                                                                                        </div>
-                                                                                                                        <img src="https://anasovi.org/wp-content/uploads/2022/06/fondo-1.jpg" alt="Google" style="width: 400px; height: 200px; margin-top: 500px;">
-                                                                                                                            </div>
-                                                                                                                            </div>
-                                                                                                                            </main>
-
-                                                                                                                            <!-- Código para el bloque de logotipos de redes sociales debajo del mapa -->
-
-                                                                                                                            </div>
-
-                                                                                                                            </aside>
-
-
-                                                                                                                            </aside>
-
-                                                                                                                            </main>
-
-                                                                                                                            <footer th:fragment="footer">
-                                                                                                                                <div style="background-color: white;">
-                                                                                                                                    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-5 py-5  ">
-                                                                                                                                        <div class="col mb-3">
-                                                                                                                                            <a href="/" class="d-flex align-items-center mb-3 link-body-emphasis text-decoration-none">
-                                                                                                                                                <svg class="bi me-2" width="50" height="32">
-                                                                                                                                                    <use xlink:href="#bootstrap"></use>
-                                                                                                                                                </svg>
-                                                                                                                                            </a>
-                                                                                                                                            <p class="text-body-secondary">© ANASOVI 2023</p>
-                                                                                                                                        </div>
-                                                                                                                                        <div class="col mb-3"></div>
-                                                                                                                                        <div class="col mb-3">
-                                                                                                                                            <h5>Navegación</h5>
-                                                                                                                                            <ul class="nav flex-column">
-                                                                                                                                                <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Principal</a></li>
-                                                                                                                                                <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Eventos</a></li>
-                                                                                                                                                <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Noticias</a></li>
-                                                                                                                                                <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Donaciones</a></li>
-                                                                                                                                                <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Nosotros</a></li>
-                                                                                                                                            </ul>
-                                                                                                                                        </div>
-                                                                                                                                        <div class="col mb-3">
-                                                                                                                                            <h5>Section</h5>
-                                                                                                                                            <ul class="nav flex-column">
-                                                                                                                                                <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Home</a></li>
-                                                                                                                                                <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Features</a></li>
-                                                                                                                                                <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Pricing</a></li>
-                                                                                                                                                <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">FAQs</a></li>
-                                                                                                                                                <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">About</a></li>
-                                                                                                                                            </ul>
-                                                                                                                                        </div>
-                                                                                                                                        <div class="col mb-3">
-                                                                                                                                            <h5>Section</h5>
-                                                                                                                                            <ul class="nav flex-column">
-                                                                                                                                                <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Home</a></li>
-                                                                                                                                                <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Features</a></li>
-                                                                                                                                                <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Pricing</a></li>
-                                                                                                                                                <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">FAQs</a></li>
-                                                                                                                                                <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">About</a></li>
-                                                                                                                                            </ul>
-                                                                                                                                        </div>
-                                                                                                                                    </div>
+                                                        <div style="flex: 1;">
+                                                            <!-- Código para el rectángulo vertical a la derecha -->
+                                                            <div style="background-color: #f2f2f2; border-radius: 5px; padding: 20px; margin: 140px 0 50px 10px;">
+                                                                <h4>[[#{nosotros.formularioContactoTitulo}]]</h4>
+                                                                <label for="nombre">[[#{nosotros.formularioContactoNombre}]]</label><br>
+                                                                    <input type="text" id="nombre" name="nombre"><br><br>
+                                                                                <label for="correo">[[#{nosotros.formularioContactoCorreo}]]</label><br>
+                                                                                    <input type="text" id="correo" name="correo"><br><br>
+                                                                                                <label for="asunto">[[#{nosotros.formularioContactoAsunto}]]</label><br>
+                                                                                                    <input type="text" id="asunto" name="asunto"><br><br>
+                                                                                                                <label for="asunto">[[#{nosotros.formularioContactoConsulta}]]</label><br>
+                                                                                                                    <input type="text" id="consulta" name="consulta"><br><br>
+                                                                                                                                <!-- Agrega más etiquetas y cajas de texto según sea necesario -->
                                                                                                                                 </div>
-                                                                                                                            </footer>
-                                                                                                                            </body>
-                                                                                                                            </html>
+                                                                                                                                <img src="https://anasovi.org/wp-content/uploads/2022/06/fondo-1.jpg" alt="Google" style="width: 400px; height: 200px; margin-top: 500px;">
+                                                                                                                                    </div>
+                                                                                                                                    </div>
+                                                                                                                                    </section>
+
+                                                                                                                                    <!-- Código para el bloque de logotipos de redes sociales debajo del mapa -->
+
+                                                                                                                                    </div>
+
+                                                                                                                                    </aside>
+
+
+                                                                                                                                    </aside>
+
+                                                                                                                                    </main>
+
+
+                                                                                                                                    </body>
+                                                                                                                                    </html>

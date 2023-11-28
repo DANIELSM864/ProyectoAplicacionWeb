@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+    <head th:fragment="head">
+        <title>Anasovi</title>
+        <meta charset="UTF-8"/>
+        <link th:href="@{/webjars/bootstrap/css/bootstrap.min.css}" rel="stylesheet"/>
+        <link th:href="@{/webjars/font-awesome/css/all.css}" rel="stylesheet"/>
+        <script th:src="@{/webjars/jquery/jquery.min.js}"></script>
+        <script th:src="@{/webjars/popper.js/umd/popper.min.js}"></script>
+        <script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+        <link th:href="@{/static/css/style.css}" rel="stylesheet" type="text/css"/>
+        <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+        <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    </head>
+
+    <body style="background: #FFEFEF;">
+        <section th:fragment="info">
+
+            <div style="background-color: #FFEFEF;">
+
+                <div style="background-color: #ffffff; border-radius: 2%; padding: 40px; max-width: 1200px; width: 100%; ">
+                    <h3> [[#{nosotros.contacteTitulo}]]</h3>
+                    <!-- Contenido de la sección "main" -->
+                    <h4>[[#{nosotros.representanteLegalTitulo}]]</h4>
+                    <p>Juan Pedro Sanchez</p>
+                    <p>+506 8423 1329</p>
+                    <p>juanpedro123@gmail.com</p>
+
+                    <h4>[[#{nosotros.contactosAdicioTitulo}]]</h4>
+                    <p>Maria Antonieta Vidal</p>
+                    <p>+506 8412 4529</p>
+                    <p>mariaantonieta123@gmail.com</p>
+
+                    <h4>[[#{nosotros.ubicanosTitulo}]]</h4>
+                    <p>[[#{nosotros.ubicanosDesc}]]</p>
+                    <iframe width="100%" height="450" style="border:0" loading="lazy" allowfullscreen
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d982.4631055429048!2d-84.0541675304589!3d9.946234420333466!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8fa0f9f5ea40e455%3A0x76ad1ced1ae8fbae!2sLey%20%26%20Familia%20Abogados!5e0!3m2!1ses!2scr!4v1698937386510!5m2!1ses!2scr"></iframe>
+                </div>
+            </div>
+        </section>
+
+        <section th:fragment="formulario">
+            <div style="background-color: #FFEFEF;">
+
+                <h4>[[#{nosotros.formularioContactoTitulo}]]</h4>
+
+                <div style=" border-radius: 5%; padding: 20px;  max-width: 900px;">
+                    <div class="row" style="background-color: #FFEFEF;">
+
+                        <div class="col-md-8">
+                            <form method="POST"
+                                  th:action="@{/consulta/guardar}" 
+                                  th:object="${consulta}"                         
+                                  enctype="multipart/form-data">
+                                <!-- Contenido del formulario -->
+                                <div id=details>
+                                    <div class="container">
+                                        <div class="row">
+                                            <div class="col">
+                                                <div class="card">
+                                                    <div class="card-header" style="background-color: #993955; color: white;">
+                                                        <h4>Formulario de consulta</h4>
+                                                    </div>
+                                                    <div class="card-body">
+                                                        <div class="mb-3">
+                                                            <label for="nombre">[[#{nosotros.formularioContactoNombre}]]</label>
+                                                            <input type="text" class="form-control" 
+                                                                   name="nombre" 
+                                                                   required="true">
+                                                        </div>
+                                                        <div class="mb-3">
+                                                            <label for="correo">[[#{nosotros.formularioContactoCorreo}]]</label>
+                                                            <input type="email" class="form-control" 
+                                                                   name="correo" 
+                                                                   required="true">
+                                                        </div>
+                                                        <div class="mb-3">
+                                                            <label for="asunto">[[#{nosotros.formularioContactoAsunto}]]</label>
+                                                            <input type="text" class="form-control" 
+                                                                   name="asunto" 
+                                                                   required="true">
+                                                        </div>
+                                                        <div class="mb-3">
+                                                            <label for="motivoConsulta">[[#{nosotros.formularioContactoConsulta}]]</label>
+                                                            <textarea name="motivoConsulta" class="form-control"  rows="3" required="true"></textarea>
+                                                        </div>
+                                                        <div class="col-md-4 d-grid mx-auto">
+                                                            <button style="background-color: #993955;" class="btn btn-primary border-0" type="submit">
+                                                                <i class="fas fa-check"></i> Enviar
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section  th:fragment="listadoConsultas" id="consultas">
+
+            <div style="background-color: #FFEFEF;">
+                <h2 class="text-center">[[#{consultaes.listaConsultaesTitulo}]]</h2>
+
+                <div class="row justify-content-center">
+                    <div class="col-md-9">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4 class="text-center">listado</h4>
+                            </div>
+                            <div th:if="${consultas != null and !consultas.empty}">
+                                <table class="table">
+                                    <thead class="table-light">
+                                        <tr>
+                                            <th class="text-center" scope="col">#</th>
+                                            <th class="text-center" scope="col">Nombre</th>
+                                            <th class="text-center" scope="col">correo</th>
+                                            <th class="text-center" scope="col">asunto</th>
+                                            <th class="text-center" scope="col">Acciones</th> <!-- Nueva columna para el botón -->
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr th:each="consulta, contador : ${consultas}">
+                                            <td class="text-center" th:text="${contador.count}"></td>
+                                            <td class="text-center" th:text="${consulta.nombre}"></td>
+                                            <td class="text-center" th:text="${consulta.correo}"></td>
+                                            <td class="text-center" th:text="${consulta.asunto}"></td>
+                                            <td class="text-center">
+                                                <a th:href="@{/consulta/eliminar/}+${consulta.idConsulta}" class="btn btn-primary border-0" type="button" style="background-color: #993955;">
+                                                    <i>Eliminar</i>
+                                                </a>
+                                                <a th:href="@{/consulta/ver/}+${consulta.idConsulta}" class="btn btn-primary border-0" type="button" style="background-color: #993955;">
+                                                    <i>Ver</i>
+                                                </a>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+
+                            </div>
+                            <div class="text-center p-2" th:if="${consultas == null or consultas.empty}">
+                                <span>[[#{consultaes.listaVacia}]]</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section th:fragment="verConsulta">
+            <div class="row">
+                <div class="col-md-2"></div>
+                <div class="col-md-8">
+                    <form method="POST"
+                          th:action="@{/consulta/guardar}" 
+                          th:object="${consulta}"                         
+                          enctype="multipart/form-data">
+                        <div id=details>
+                            <input type="hidden" name="idConsulta" th:field="*{idConsulta}"/>
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col">
+                                        <div class="card">
+                                            <div class="card-header">
+                                               
+                                            </div>
+                                            <div class="card-body">
+                                                <div class="mb-3">
+                                                    <label for="nombre">nombre</label>
+                                                    <input type="text" class="form-control" 
+                                                           name="titulo" th:field="*{nombre}"
+                                                           readonly="true">
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label for="correo">correo</label>
+                                                    <input type="text" class="form-control" 
+                                                           name="correo" th:field="*{correo}"
+                                                          readonly="true">
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label for="asunto">asunto</label>
+                                                    <input type="text" class="form-control" 
+                                                           name="asunto" th:field="*{asunto}"
+                                                          readonly="true">
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label for="motivoConsulta">consulta</label>
+                                                    <input type="text" class="form-control" 
+                                                           name="motivoConsulta" th:field="*{motivoConsulta}"
+                                                          readonly="true">
+                                                </div>
+                                                <div class="container py-4 mb-4">
+                                                    <div class="row">
+                                                        <div class="col-md-4 d-grid mx-auto">
+                                                            <a style="background-color: #993955;" th:href="@{/consulta/paginaConsulta}" class="btn btn-primary border-0">
+                                                                <i class="fas fa-arrow-left"></i> Regresar
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+        <section th:fragment="redes" style="background-color: #FFEFEF;">
+            <div style="text-align: left;">
+                <h4>[[#{nosotros.redesTitulo}]]</h4>
+                <div style="display: flex; justify-content: left;">
+                    <a href="https://www.facebook.com/" target="_blank">
+                        <img src="ruta-de-tu-imagen-facebook.jpg" alt="Facebook" style="width: 30px; height: 30px; margin: 0 10px;">
+                    </a>
+                    <a href="https://www.twitter.com/" target="_blank">
+                        <img src="ruta-de-tu-imagen-twitter.jpg" alt="Twitter" style="width: 30px; height: 30px; margin: 0 10px;">
+                    </a>
+                    <a href="https://www.instagram.com/" target="_blank">
+                        <img src="ruta-de-tu-imagen-instagram.jpg" alt="Instagram" style="width: 30px; height: 30px; margin: 0 10px;">
+                    </a>
+                    <!-- Añade otros enlaces y logotipos de redes sociales según sea necesario -->
+                </div>
+            </div>
+            <div>
+                <h4>[[#{nosotros.nosotrosTitulo}]]</h4>
+                <p>[[#{nosotros.nosotrosDesc}]]
+            </div>
+            <figure>
+                <img src="https://anasovi.org/wp-content/uploads/2022/06/fondo-1.jpg" alt="Google" style="width: 400px; height: 200px;">
+            </figure>
+
+        </section>
+        
+    </body>
+</html>

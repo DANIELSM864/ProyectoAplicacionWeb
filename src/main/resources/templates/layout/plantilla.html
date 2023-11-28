@@ -19,7 +19,7 @@
                 <div style="background-color: #993955; width: 100%;" class="d-flex justify-content-center py-3">
                     <ul class="nav nav-pills" style="margin: 0px 40px;">
                         <li class="nav-item"><a th:href="@{/templates/index}" class="nav-link fw-bold" style="color: #0F0326;" aria-current="page">[[#{layout.principal}]]</a></li>
-                        <li class="nav-item"><a th:href="@{/nosotros/paginaNosotros}" class="nav-link  fw-bold" style="color: #0F0326;">[[#{layout.nosotros}]]</a></li>
+                        <li class="nav-item"><a th:href="@{/consulta/paginaConsulta}" class="nav-link  fw-bold" style="color: #0F0326;">[[#{layout.nosotros}]]</a></li>
                         <li class="nav-item"><a th:href="@{/noticia/paginaNoticia}" class="nav-link  fw-bold" style="color: #0F0326;">[[#{layout.noticias}]]</a></li>
                         <li class="nav-item"><a th:href="@{/evento/paginaEvento}" class="nav-link  fw-bold" style="color: #0F0326;">[[#{layout.eventos}]]</a></li>
                         <li class="nav-item"><a th:href="@{/donacion/paginaDonacion}" class="nav-link  fw-bold" style="color: #0F0326;">[[#{layout.donaciones}]]</a></li>
@@ -36,11 +36,6 @@
             </div>
 
         </div>
-
-
-
-
-
         <footer th:fragment="footer">
 
             <div style="background-color: white;">
