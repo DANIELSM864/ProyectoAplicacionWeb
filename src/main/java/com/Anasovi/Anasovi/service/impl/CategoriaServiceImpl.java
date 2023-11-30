@@ -13,16 +13,13 @@ public class CategoriaServiceImpl implements CategoriaService {
 
     @Autowired
     private CategoriaDao categoriaDao;
-            
-            
+
     @Override
     public List<Categoria> getCategorias(boolean activo) {
         var categorias = categoriaDao.findAll();
-                if (activo) {
-                    categorias.removeIf(e -> !e.isActivo());
-        }
-                return categorias;
+        return categorias;
     }
+
     @Override
     @Transactional(readOnly = true)
     public Categoria getCategoria(Categoria categoria) {
@@ -40,6 +37,4 @@ public class CategoriaServiceImpl implements CategoriaService {
     public void delete(Categoria categoria) {
         categoriaDao.delete(categoria);
     }
-    
-   
 }

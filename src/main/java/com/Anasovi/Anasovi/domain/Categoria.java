@@ -18,15 +18,10 @@ public class Categoria  implements Serializable{
     @Column(name="id_categoria")
     private Long idCategoria;
      private String rutaImagen;
-    private Boolean activo;
     private String nombre;
   
     
     @OneToMany
     @JoinColumn(name="id_categoria", updatable = false)
     private List<Producto> productos;
-
-   public boolean isActivo() {
-        return Boolean.TRUE.equals(activo);
-    }
 }
