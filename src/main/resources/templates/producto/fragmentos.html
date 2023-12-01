@@ -27,67 +27,63 @@
             </div>
         </section>
 
-        <!-- 2 Fragmento para agregar producto, es la ventana modal -->
-        <section th:fragment="agregarProducto">
-            <div id="agregarProducto" 
-                 class="modal fade" 
-                 tabindex="-1" 
-                 aria-labelledby="exampleModalLabel" 
-                 aria-hidden="true">
-                <div class="modal-dialog modal-md">
-                    <div class="modal-content">
-                        <div class="modal-header bg-info text-white">
-                            <h5 class="modal-title">[[#{producto.agregar}]]</h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div> 
-                        <form th:action="@{/producto/guardar}" th:object="${producto}"
-                              method="POST" class="was-validated" enctype="multipart/form-data">
-                            <div class="modal-body">
-
-                                <div class="mb-3">
-                                    <label for="categoria">[[#{producto.categoria}]]</label>
-                                    <select class="form-select" aria-label="Default select example"
-                                            name="categoria.idCategoria">
-                                        <option th:each="c : ${categorias}"
-                                                th:value="${c.idCategoria}"
-                                                th:text="${c.nombre}"></option>
-                                    </select>
-                                </div>
-                                <div class="mb-3">
-                                    <label for="descripcion">[[#{producto.descripcion}]]</label>
-                                    <input type="text" class="form-control" name="descripcion" required="true"/>
-                                </div>
-                                <div class="mb-3">
-                                    <label for="detalle">[[#{producto.detalle}]]</label>
-                                    <textarea class="form-control" name="detalle" rows="3"/>
-                                    </textarea>
-                                </div>
-                                <div class="mb-3">
-                                    <label for="precio">[[#{producto.precio}]]</label>
-                                    <input type="number" class="form-control" name="precio" required="true"/>
-                                </div>
-                                <div class="mb-3">
-                                    <label for="existencias">[[#{producto.existencias}]]</label>
-                                    <input type="number" class="form-control" name="existencias" required="true"/>
-                                </div>
-                                <div class="mb-3">
-                                    <label for="imagen">[[#{producto.imagen}]]</label>
-                                    <input class="form-control" type="file" name="imagenFile" onchange="readURL(this);"/>
-                                    <img id="blah" src="#" alt="your image" height="200"/>
-                                </div>
-                                <div class="mb-3">
-                                    <label for="activo">[[#{producto.activo}]]</label>
-                                    <input class="form-check-input" type="checkbox" name="activo" id="activo"/>
-                                </div>
-                            </div>
-                            <div class="modal-footer">
-                                <button class="btn btn-primary" type="submit">Guardar</button>
-                            </div>
-                        </form>
-                    </div>
+ <!-- 2 Fragmento para agregar producto, es la ventana modal -->
+<section th:fragment="agregarProducto">
+   <div id="agregarProducto" class="modal fade" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xl modal-dialog-centered">
+            <div class="modal-content" style="background-color: white; color: black;">
+                <div class="modal-header" style="background-color: #993955; color: white;">
+                    <h5 class="modal-title">[[#{categoria.agregar}]]</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" style="color: white;"></button>
                 </div>
+                <form th:action="@{/producto/guardar}" th:object="${producto}" method="POST" class="was-validated" enctype="multipart/form-data">
+                    <div class="modal-body">
+
+                        <div class="mb-3">
+                            <label for="categoria" style="color: #993955;">[[#{producto.categoria}]]</label>
+                            <select class="form-select" aria-label="Default select example" name="categoria.idCategoria">
+                                <option th:each="c : ${categorias}" th:value="${c.idCategoria}" th:text="${c.nombre}"></option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="descripcion" style="color: #993955;">[[#{producto.descripcion}]]</label>
+                            <input type="text" class="form-control border-2 bg-light" name="descripcion" required="true"/>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="detalle" style="color: #993955;">[[#{producto.detalle}]]</label>
+                            <textarea class="form-control border-2 bg-light" name="detalle" rows="3"></textarea>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="precio" style="color: #993955;">[[#{producto.precio}]]</label>
+                            <input type="number" class="form-control border-2 bg-light" name="precio" required="true"/>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="existencias" style="color: #993955;">[[#{producto.existencias}]]</label>
+                            <input type="number" class="form-control border-2 bg-light" name="existencias" required="true"/>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="imagen" style="color: #993955;">[[#{producto.imagen}]]</label>
+                            <input class="form-control border-2 bg-light" type="file" name="imagenFile" onchange="readURL(this);"/>
+                            <img id="blah" src="#" alt="your image" height="200"/>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="activo" style="color: #993955;">[[#{producto.activo}]]</label>
+                            <input class="form-check-input" type="checkbox" name="activo" id="activo"/>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-primary" type="submit" style="background-color: #993955;">Guardar</button>
+                    </div>
+                </form>
             </div>
-        </section>
+        </div>
+    </div>
+</section>
 
         <!-- 3 Sección principal para mostrar la informaccion de la entidad producto -->
         <section th:fragment="listadoProductos" id="productos">
@@ -120,8 +116,11 @@
                                             <td th:text="${producto.activo} ? 'Activa' : 'Inactiva'" />
                                             <td>[[${producto.categoria.nombre}]]</td>
                                             <td sec:authorize="hasRole('ROLE_ADMIN')">
+                                                <a th:href="@{/producto/eliminar/}+${producto.idProducto}"
+                                                   class="btn btn-danger">
+                                                    <i class="fas fa-trash"></i> [[#{accion.eliminar}]]</a>
                                                 <a th:href="@{/producto/modificar/}+${producto.idProducto}"
-                                                   class="btn btn-success">
+                                                  style="background-color: #993955; color: white;" class="btn btn-success">
                                                     <i class="fas fa-pencil"></i> [[#{accion.actualizar}]]</a></td></tr>
                                     </tbody>
                                 </table>
@@ -131,14 +130,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-3">
-                        <div class="card text-center mb-3" style="background-color: #993955; color: white;">
-                            <div class="card-body">
-                                <h3>[[#{producto.total}]]</h3>
-                                <h4 class="fs-2"><i class="fas fa-users"></i> [[${totalProductos}]]</h4>
-                            </div>
-                        </div>
-                    </div>
+                  
                 </div>
             </div>
         </section>
@@ -220,7 +212,7 @@
             <div class="container py-4 mb-4 bg-light">
                 <div class="row">
                     <div class="col-md-4 d-grid">
-                        <a th:href="@{/producto/listado}" class="btn btn-primary">
+                        <a th:href="@{/producto/listado}" style="background-color: #993955; color: white;" class="btn btn-primary">
                             <i class="fas fa-arrow-left"></i> [[#{accion.regresar}]]
                         </a>
                     </div>
@@ -231,7 +223,7 @@
                         </a>
                     </div>
                     <div class="col-md-4 d-grid">
-                        <button type="submit" class="btn btn-success">
+                        <button type="submit" style="background-color: #993955; color: white;"class="btn btn-success">
                             <i class="fas fa-check"></i> [[#{accion.guardar}]]
                         </button>
                     </div>

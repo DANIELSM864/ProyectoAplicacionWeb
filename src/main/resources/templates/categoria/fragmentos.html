@@ -25,41 +25,41 @@
             </div>
         </section>
 
-        <!-- 2 Fragmento para agregar categoria, es la ventana modal -->
-        <section th:fragment="agregarCategoria">
-            <div id="agregarCategoria" 
-                 class="modal fade" 
-                 tabindex="-1" 
-                 aria-labelledby="exampleModalLabel" 
-                 aria-hidden="true">
-                <div class="modal-dialog modal-md">
-                    <div class="modal-content">
-                        <div class="modal-header bg-info text-white">
-                            <h5 class="modal-title">[[#{categoria.agregar}]]</h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div> 
-                        <form th:action="@{/categoria/guardar}" th:object="${categoria}"
-                              method="POST" class="was-validated" enctype="multipart/form-data">
-                            <div class="modal-body">
-                                <div class="mb-3">
-                                    <label for="nombre">[[#{categoria.nombre}]]</label>
-                                    <input type="text" class="form-control" name="nombre" required="true"/>
-                                </div>
-                               
-                                <div class="mb-3">
-                                    <label for="imagen">[[#{categoria.rutaImagen}]]</label>
-                                    <input class="form-control" type="file" name="imagenFile" onchange="readURL(this);"/>
-                                    <img id="blah" src="#" alt="your image" height="200"/>
-                                </div>
-                            </div>
-                            <div class="modal-footer">
-                                <button class="btn btn-primary" type="submit">Guardar</button>
-                            </div>
-                        </form>
-                    </div>
+       <!-- 2 Fragmento para agregar categoria, es la ventana modal -->
+<section th:fragment="agregarCategoria">
+    <div id="agregarCategoria" class="modal fade" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xl modal-dialog-centered">
+            <div class="modal-content" style="background-color: white; color: black;">
+                <div class="modal-header" style="background-color: #993955; color: white;">
+                    <h5 class="modal-title">[[#{categoria.agregar}]]</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" style="color: white;"></button>
                 </div>
+                <form th:action="@{/categoria/guardar}" th:object="${categoria}" method="POST" class="was-validated" enctype="multipart/form-data">
+                    <div class="modal-body">
+                        <div class="mb-3">
+                            <label for="nombre" style="color: #993955;">[[#{categoria.nombre}]]</label>
+                            <input type="text" class="form-control border-2" name="nombre" required="true" />
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="imagen" style="color: #993955;">[[#{categoria.rutaImagen}]]</label>
+                            <input class="form-control border-2" type="file" name="imagenFile" onchange="readURL(this);" />
+                            <img id="blah" src="#" alt="your image" height="200" style="border: 2px solid #993955;" />
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-primary" type="submit" style="background-color: #993955;">Guardar</button>
+                    </div>
+                </form>
             </div>
-        </section>
+        </div>
+    </div>
+</section>
+
+
+
+
+
 
         <!-- 3 Sección principal para mostrar la informaccion de la entidad categoria -->
         <section th:fragment="listadoCategorias" id="categorias">
@@ -89,7 +89,7 @@
                                                    class="btn btn-danger">
                                                     <i class="fas fa-trash"></i> [[#{accion.eliminar}]]</a>
                                                 <a th:href="@{/categoria/modificar/}+${categoria.idCategoria}"
-                                                   class="btn btn-success">
+                                                   style="background-color: #993955; color: white;"class="btn btn-success">
                                                     <i class="fas fa-pencil"></i> [[#{accion.actualizar}]]</a></td></tr>
                                     </tbody>
                                 </table>
@@ -99,14 +99,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-3">
-                        <div class="card text-center mb-3" style="background-color: #993955; color: white;">
-                            <div class="card-body">
-                                <h3>[[#{categoria.total}]]</h3>
-                                <h4 class="fs-2"><i class="fas fa-users"></i> [[${totalCategorias}]]</h4>
-                            </div>
-                        </div>
-                    </div>
+                 
                 </div>
             </div>
         </section>
@@ -129,7 +122,7 @@
                                 <div class="row">
                                     <div class="col">
                                         <div class="card">
-                                            <div class="card-header">
+                                            <div class="card-header" >
                                                 <h4>[[#{accion.actualizar}]]</h4>
                                             </div>
                                             <div class="card-body">
@@ -161,18 +154,18 @@
             <div class="container py-4 mb-4 bg-light">
                 <div class="row">
                     <div class="col-md-4 d-grid">
-                        <a th:href="@{/categoria/listado}" class="btn btn-primary">
+                        <a th:href="@{/categoria/listado}"  style="background-color: #993955; color: white;"class="btn btn-primary">
                             <i class="fas fa-arrow-left"></i> [[#{accion.regresar}]]
                         </a>
                     </div>
                     <div class="col-md-4 d-grid">                                
                         <a th:href="@{/categoria/eliminar/}+${categoria.idCategoria}"
-                           class="btn btn-danger">
+                          style="background-color: #993955; color: white;" class="btn btn-danger">
                             <i class="fas fa-trash"></i> [[#{accion.eliminar}]]
                         </a>
                     </div>
                     <div class="col-md-4 d-grid">
-                        <button type="submit" class="btn btn-success">
+                        <button type="submit" style="background-color: #993955; color: white;"class="btn btn-success">
                             <i class="fas fa-check"></i> [[#{accion.guardar}]]
                         </button>
                     </div>
