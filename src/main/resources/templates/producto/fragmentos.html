@@ -20,7 +20,7 @@
                             style="background-color: #993955; color: white;"
                             data-bs-target="#agregarProducto">
                             
-                            <i class="fas fa-plus"></i> [[#{producto.agregar}]]
+                           [[#{producto.agregar}]]
                         </button>
                     </div>
                 </div>
@@ -29,11 +29,11 @@
 
  <!-- 2 Fragmento para agregar producto, es la ventana modal -->
 <section th:fragment="agregarProducto">
-   <div id="agregarProducto" class="modal fade" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-xl modal-dialog-centered">
-            <div class="modal-content" style="background-color: white; color: black;">
-                <div class="modal-header" style="background-color: #993955; color: white;">
-                    <h5 class="modal-title">[[#{categoria.agregar}]]</h5>
+       <div id="agregarProducto" class="modal fade" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" style="max-width: 80%">
+            <div class="modal-content" style="background-color: white; color: black; border: 5px solid #993955;">
+                <div class="modal-header" style="background-color: #993955; color: white; border-bottom: 10px solid #e9ecef;">
+                    <h5 class="modal-title text-center">[[#{producto.agregar}]]</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" style="color: white;"></button>
                 </div>
                 <form th:action="@{/producto/guardar}" th:object="${producto}" method="POST" class="was-validated" enctype="multipart/form-data">
@@ -68,7 +68,7 @@
                         <div class="mb-3">
                             <label for="imagen" style="color: #993955;">[[#{producto.imagen}]]</label>
                             <input class="form-control border-2 bg-light" type="file" name="imagenFile" onchange="readURL(this);"/>
-                            <img id="blah" src="#" alt="your image" height="200"/>
+                            <img id="blah" src="#"  height="200"/>
                         </div>
 
                         <div class="mb-3">
@@ -85,55 +85,58 @@
     </div>
 </section>
 
-        <!-- 3 Sección principal para mostrar la informaccion de la entidad producto -->
-        <section th:fragment="listadoProductos" id="productos">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-9">
-                        <div class="card">
-                            <div class="card-header">
-                                <h4>[[#{producto.listado}]]</h4>
-                            </div>
-                            <div th:if="${productos != null and !productos.empty}">
-                                <table class="table table-striped table-hover">
-                                    <thead class="table-dark">
-                                        <tr><th>#</th>
-                                            <th>[[#{producto.descripcion}]]</th>
-                                            <th>[[#{producto.precio}]]</th>
-                                            <th>[[#{producto.existencias}]]</th>
-                                            <th>[[#{producto.total}]]</th>
-                                            <th>[[#{producto.activo}]]</th>
-                                            <th>[[#{producto.categoria}]]</th>
-                                            <th sec:authorize="hasRole('ROLE_ADMIN')"></th></tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr th:each="producto, contador : ${productos}">
-                                            <td>[[${contador.count}]]</td>
-                                            <td>[[${producto.descripcion}]]</td>
-                                            <td class="text-end">[[${producto.precio}]]</td>
-                                            <td class="text-end">[[${producto.existencias}]]</td>
-                                            <td class="text-end">[[${producto.precio*producto.existencias}]]</td>
-                                            <td th:text="${producto.activo} ? 'Activa' : 'Inactiva'" />
-                                            <td>[[${producto.categoria.nombre}]]</td>
-                                            <td sec:authorize="hasRole('ROLE_ADMIN')">
-                                                <a th:href="@{/producto/eliminar/}+${producto.idProducto}"
-                                                   class="btn btn-danger">
-                                                    <i class="fas fa-trash"></i> [[#{accion.eliminar}]]</a>
-                                                <a th:href="@{/producto/modificar/}+${producto.idProducto}"
-                                                  style="background-color: #993955; color: white;" class="btn btn-success">
-                                                    <i class="fas fa-pencil"></i> [[#{accion.actualizar}]]</a></td></tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                            <div class="text-center p-2" th:if="${productos == null or productos.empty}">
-                                <span>[[#{lista.vacia}]]</span>
-                            </div>
-                        </div>
+       <section th:fragment="listadoProductos" id="productos">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-9">
+                <div class="card">
+                    <div class="card-header">
+                        <h4>[[#{producto.listado}]]</h4>
                     </div>
-                  
+                    <div th:if="${productos != null and !productos.empty}" class="table-responsive">
+                        <table class="table table-bordered table-striped table-hover">
+                            <thead class="table-white">
+                                <tr>
+                                    <th>#</th>
+                                    <th>[[#{producto.descripcion}]]</th>
+                                    <th class="text-end">[[#{producto.precio}]]</th>
+                                    <th class="text-end">[[#{producto.existencias}]]</th>
+                                    <th class="text-end">[[#{producto.total}]]</th>
+                                    <th>[[#{producto.activo}]]</th>
+                                    <th>[[#{producto.categoria}]]</th>
+                                    <th sec:authorize="hasRole('ROLE_ADMIN')"></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr th:each="producto, contador : ${productos}">
+                                    <td>[[${contador.count}]]</td>
+                                    <td>[[${producto.descripcion}]]</td>
+                                    <td class="text-end">&#x20A1;[[${producto.precio}]]</td>
+                                    <td class="text-end">[[${producto.existencias}]]</td>
+                                    <td class="text-end">[[${producto.precio*producto.existencias}]]</td>
+                                    <td th:text="${producto.activo} ? 'Activa' : 'Inactiva'" />
+                                    <td>[[${producto.categoria.nombre}]]</td>
+                                    <td sec:authorize="hasRole('ROLE_ADMIN')">
+                                        <a th:href="@{/producto/eliminar/}+${producto.idProducto}" style="background-color: #993955; color: white;"class="btn btn-danger">
+                                            <i class="fas fa-trash"></i> [[#{accion.eliminar}]]
+                                        </a>
+                                        <a th:href="@{/producto/modificar/}+${producto.idProducto}" style="background-color: #993955; color: white;"class="btn btn-success">
+                                            <i class="fas fa-pencil"></i> [[#{accion.actualizar}]]
+                                        </a>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="text-center p-2" th:if="${productos == null or productos.empty}">
+                        <span>[[#{lista.vacia}]]</span>
+                    </div>
                 </div>
             </div>
-        </section>
+        </div>
+    </div>
+</section>
+
 
         <!-- 4 Fragmento que se utiliza en la página modifca.html -->
         <section th:fragment="editarProducto">
@@ -218,7 +221,7 @@
                     </div>
                     <div class="col-md-4 d-grid">                                
                         <a th:href="@{/producto/eliminar/}+${producto.idProducto}"
-                           class="btn btn-danger">
+                           style="background-color: #993955; color: white;" class="btn btn-danger">
                             <i class="fas fa-trash"></i> [[#{accion.eliminar}]]
                         </a>
                     </div>
