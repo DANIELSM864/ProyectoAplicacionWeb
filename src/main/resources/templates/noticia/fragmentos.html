@@ -1,66 +1,25 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6"
       xmlns:th="http://www.thymeleaf.org">
     <head th:fragment="head">
         <title>Anasovi</title>
 
     </head>
     <body style="background-color: #FFEFEF;">
-
-
-        <section th:fragment="info" style="display: flex; background-color: #FFEFEF">
+        <section th:fragment="informacion" style="display: flex; background-color: #FFEFEF">
             <aside style="width: 70%; margin-left: 180px; ">
                 <!-- Contenido del aside aquí -->
-                <h3 style="margin: 20px 0"> Noticias</h3>
-                <div style="background-color: white; border-radius: 20px; padding: 20px; margin: 10px 0;">
-                    <h4>Nuevas noticias</h4>
-                    <div style="display: flex; justify-content: space-between;">
-                        <div style="width: 30%;">
-                            <figure>
-                                <img src="https://anasovi.org/wp-content/uploads/2022/08/image-205.png" width="356" height="350" alt="Noticia_1"/>
-                            </figure>
-                        </div>
-                        <div style="width: 30%;">
-                            <figure>
-                                <img src="https://anasovi.org/wp-content/uploads/2022/08/image-204.png" width="356" height="350" alt="Noticia_2"/>
-                            </figure>
-                        </div>
-                        <div style="width: 30%;">
-                            <figure>
-                                <img src="https://anasovi.org/wp-content/uploads/2022/08/image-198.png" width="356" height="350" alt="Noticia_3"/>
-                            </figure>
-                        </div>
-                    </div>
+                <h2 style="text-align: center; margin: 30px 0;">[[#{eventos.eventosTitulo}]]</h2>
 
+                <div style="background-color: white; border-radius: 20px; padding: 20px; margin: 20px 0;">
+                    <h4>[[#{eventos.proximosTitulo}]]</h4>
 
-                    <div class="image-info-container">
-                        <div class="info-container">
-                            <h4>Juntos contra el cáncer de próstata</h4>
-                            <p>¡Unete a nuestra charla para saber mas contra el cáncer de próstata, 
-                                hablaremos de los factores de riesgo, mitos y aspectos importantes de esta enfermedad!</p>
-                            <div class="image-container">
-                                <figure>
-                                    <img src="https://anasovi.org/wp-content/uploads/2023/06/353416771_650387130450014_593853373840484932_n-1024x1024.jpg" width="356" height="350" alt="Cancer_de_prostata"/>
-                                </figure>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Agregar Lorem Ipsum debajo de las imágenes -->
-                    <div th:fragment="infoabajo" style="background-color: white; border-radius: 20px; padding: 20px; margin: 20px 0;">
-                        <h4>Anasovi en Kidney Cáncer Summit</h4>
-                        <p>¡Anasovi estara en el IKCC! Es de nuestro agrado informar que seremos partes en este gran evento junto
-                            a diferentes organizaciones participantes. Tendremos como representante a la Sra. Briseida Cantillo.</p>
-                        <div style="width: 30%;">
-                            <figure>
-                                <img src="https://anasovi.org/wp-content/uploads/2023/06/354442752_632066352282798_6091792634605168663_n-1.png" width="550" height="250" alt="IKCC"/>
-                            </figure>
-                        </div>
-                    </div>
+                    <p>[[#{eventos.proximos}]]</p>
+                </div>
             </aside>
 
         </section>
-
 
 
         <section th:fragment="agregarNoticia">
@@ -185,58 +144,11 @@
             </div>
         </section>
 
-        <!-- 3 Sección principal para mostrar la informaccion de la entidad arbol -->
-        <section  th:fragment="listadoNoticias" id="noticias">
-            <div style="background-color: #FFEFEF;">
-                <h2 class="text-center">Lista de personas donadores</h2>
-
-                <div class="row justify-content-center">
-                    <div class="col-md-9">
-                        <div class="card">
-                            <div class="card-header">
-                                <h4 class="text-center">Listado</h4>
-                                <a th:href="@{/noticia/nuevo}" class="btn btn-primary border-0" type="button" style="background-color: #993955;">
-                                    <i>Agregar donador</i>
-                                </a>
-                            </div>
-                            <div th:if="${noticias != null and !noticias.empty}">
-                                <table class="table">
-                                    <thead class="table-light">
-                                        <tr>
-                                            <th class="text-center" scope="col">#</th>
-                                            <th class="text-center" scope="col">descripcion</th>
-                                            <th class="text-center" scope="col">Acciones</th> <!-- Nueva columna para el botón -->
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr th:each="noticia, contador : ${noticias}">
-                                            <td class="text-center" th:text="${contador.count}"></td>
-                                            <td class="text-center" th:text="${noticia.descripcion}"></td>
-                                            <td class="text-center">
-                                                <a th:href="@{/noticia/eliminar/}+${noticia.id_noticia}" class="btn btn-primary border-0" type="button" style="background-color: #993955;">
-                                                    <i>Eliminar</i>
-                                                </a>
-                                                <a th:href="@{/noticia/modificar/}+${noticia.id_noticia}" class="btn btn-primary border-0" type="button" style="background-color: #993955;">
-                                                    <i>Modificar</i>
-                                                </a>
-                                            </td>
 
 
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                            <div class="text-center p-2" th:if="${noticias == null or noticias.empty}">
-                                <span>lista vacía</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
         <section th:fragment="listadoNoticiasCards" style="background-color: #FFEFEF; padding: 4em;">
             <div style="padding: 1em; margin-left: 30px" >
-                <a th:href="@{/noticia/nuevo}" class="btn btn-primary border-0" type="button" style="background-color: #993955;">
+                <a sec:authorize="hasRole('ROLE_ADMIN')" th:href="@{/noticia/nuevo}" class="btn btn-primary border-0" type="button" style="background-color: #993955;">
                     <i>Agregar noticia</i>
                 </a> 
             </div>
@@ -253,7 +165,7 @@
                     <div class="card-body">   
                         [[${noticia.descripcion}]]
                     </div>
-                    <div class="card-body">
+                    <div sec:authorize="hasRole('ROLE_ADMIN')" class="card-body">
                         <a th:href="@{/noticia/eliminar/}+${noticia.id_noticia}" class="btn btn-primary border-0" type="button" style="background-color: #993955;">
                             <i>Eliminar</i>
                         </a>

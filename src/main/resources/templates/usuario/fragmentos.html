@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6"
+      xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+
+    </head>
+    <body style="background-color: #FFEFEF;">
+
+
+        <!-- 3 Sección principal para mostrar la informaccion de la entidad usuario -->
+        <section  th:fragment="listadoUsuarios" id="usuarios">
+
+            <div style="background-color: #FFEFEF;">
+                <h2 class="text-center">[[#{usuarios.listaUsuariosTitulo}]]</h2>
+
+                <div class="row justify-content-center">
+                    <div class="col-md-9">
+                        <div class="card">
+                            <div class="card-header" >
+                                <h4  class="text-center">[[#{usuarioes.listaTitulo}]]</h4>
+                                <a sec:authorize="hasRole('ROLE_ADMIN')" th:href="@{/usuario/nuevoD}" class="btn btn-primary border-0" type="button" style="background-color: #993955;">
+                                    <i>[[#{usuarios.agregarUsuario}]]</i>
+                                </a>
+                            </div>
+                            <div th:if="${usuarios != null and !usuarios.empty}">
+                                <table class="table">
+                                    <thead class="table-light">
+                                        <tr>
+                                            <th class="text-center" scope="col">#</th>
+                                            <th class="text-center" scope="col">Username</th>
+                                            <th class="text-center" scope="col">Nombre</th>
+                                            <th class="text-center" scope="col">Apellidos</th>
+                                            <th class="text-center" scope="col">Correo</th>
+                                            <th class="text-center" scope="col" sec:authorize="hasRole('ROLE_ADMIN')">Acciones</th> <!-- Nueva columna para el botón -->
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr th:each="usuario, contador : ${usuarios}">
+                                            <td class="text-center" th:text="${contador.count}"></td>
+                                            <td class="text-center" th:text="${usuario.username}"></td>
+                                            <td class="text-center" th:text="${usuario.nombre}"></td>
+                                            <td class="text-center" th:text="${usuario.primerApellido + ' ' + usuario.segundoApellido}"></td>
+                                            <td class="text-center" th:text="${usuario.correo}"></td>
+                                            <td class="text-center" sec:authorize="hasRole('ROLE_ADMIN')">
+                                                <a th:href="@{/usuario/eliminar/}+${usuario.cedula}" class="btn btn-primary border-0" type="button" style="background-color: #993955;">
+                                                    <i>Eliminar</i>
+                                                </a>
+                                                <a th:href="@{/usuario/modificar/}+${usuario.cedula}" class="btn btn-primary border-0" type="button" style="background-color: #993955;">
+                                                    <i>Modificar</i>
+                                                </a>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+
+                            </div>
+                            <div class="text-center p-2" th:if="${usuarios == null or usuarios.empty}">
+                                <span>[[#{usuarios.listaVacia}]]</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section th:fragment="editarUsuario" >
+            <div class="row">
+                <div class="col-md-2"></div>
+                <div class="col-md-8">
+                    <form method="POST"
+                          th:action="@{/usuario/guardar}" 
+                          th:object="${usuario}"                         
+                          enctype="multipart/form-data">
+                        <div id=details>
+                            <input type="hidden" name="cedula" th:field="*{cedula}"/>
+                            <input type="hidden" name="password" th:field="*{password}"/>
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col">
+                                        <div class="card">
+                                            <div class="card-header">
+                                                <h4>Actualizar</h4>
+                                            </div>
+                                            <div class="card-body">
+                                                <div class="mb-3">
+                                                    <label  for="username">username</label>
+                                                    <input type="text" class="form-control" 
+                                                           name="username" th:field="*{username}"
+                                                           required="true">
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label for="nombre">Nombre</label>
+                                                    <input type="text" class="form-control" 
+                                                           name="nombre" th:field="*{nombre}"
+                                                           required="true">
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label for="primer Apellido">Primer Apellido</label>
+                                                    <input type="text" class="form-control" 
+                                                           name="primerApellido" th:field="*{primerApellido}"
+                                                           required="true">
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label for="segundo Apellido">Segundo Apellido</label>
+                                                    <input type="text" class="form-control" 
+                                                           name="segundoApellido" th:field="*{segundoApellido}"
+                                                           required="true">
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label for="correo">Correo</label>
+                                                    <input type="email" class="form-control" 
+                                                           name="correo" th:field="*{correo}"
+                                                           required="true">
+                                                </div>
+                                                <div class="container py-4 mb-4">
+                                                    <div class="row">
+                                                        <div class="col-md-4 d-grid mx-auto">
+                                                            <a style="background-color: #993955;" th:href="@{/usuario/paginaUsuario}" class="btn btn-primary border-0">
+                                                                <i class="fas fa-arrow-left"></i> Regresar
+                                                            </a>
+                                                        </div>
+
+                                                        <div class="col-md-4 d-grid mx-auto">
+                                                            <button style="background-color: #993955;" class="btn btn-primary border-0" type="submit">
+                                                                <i class="fas fa-check"></i> Guardar
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+        <section th:fragment="agregarUsuario">
+            <div class="row">
+                <div class="col-md-2"></div>
+                <div class="col-md-8">
+                    <form method="POST"
+                          th:action="@{/usuario/guardar}" 
+                          th:object="${usuario}"                         
+                          enctype="multipart/form-data">
+                        <div id=details>
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col">
+                                        <div class="card">
+                                            <div class="card-header">
+                                                <h4>Añadir usuario</h4>
+                                            </div>
+                                            <div class="card-body">
+                                                <div class="mb-3">
+                                                    <label  for="username">username</label>
+                                                    <input type="text" class="form-control" 
+                                                           name="username"
+                                                           required="true">
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label for="password">Contraseña</label>
+                                                    <input type="password" class="form-control"
+                                                           name="password" 
+                                                           required="true"/>
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label for="nombre">Nombre</label>
+                                                    <input type="text" class="form-control" 
+                                                           name="nombre" 
+                                                           required="true">
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label for="primer Apellido">Primer Apellido</label>
+                                                    <input type="text" class="form-control" 
+                                                           name="primerApellido" 
+                                                           required="true">
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label for="segundo Apellido">Segundo Apellido</label>
+                                                    <input type="text" class="form-control" 
+                                                           name="segundoApellido"
+                                                           required="true">
+                                                </div>
+
+                                                <div class="mb-3">
+                                                    <label for="correo">Correo</label>
+                                                    <input type="email" class="form-control" 
+                                                           name="correo"
+                                                           required="true">
+                                                </div>
+                                                
+                                                
+                                                <div class="container py-4 mb-4">
+                                                    <div class="row">
+                                                        <div class="col-md-4 d-grid mx-auto">
+                                                            <a style="background-color: #993955;" th:href="@{/usuario/paginaUsuario}" class="btn btn-primary border-0">
+                                                                <i class="fas fa-arrow-left"></i> Regresar
+                                                            </a>
+                                                        </div>
+
+                                                        <div class="col-md-4 d-grid mx-auto">
+                                                            <button style="background-color: #993955;" class="btn btn-primary border-0" type="submit">
+                                                                <i class="fas fa-check"></i> Guardar
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </body>
+</html>

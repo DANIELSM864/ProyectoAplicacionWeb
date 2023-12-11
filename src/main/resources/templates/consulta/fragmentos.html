@@ -1,17 +1,7 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
-    <head th:fragment="head">
-        <title>Anasovi</title>
-        <meta charset="UTF-8"/>
-        <link th:href="@{/webjars/bootstrap/css/bootstrap.min.css}" rel="stylesheet"/>
-        <link th:href="@{/webjars/font-awesome/css/all.css}" rel="stylesheet"/>
-        <script th:src="@{/webjars/jquery/jquery.min.js}"></script>
-        <script th:src="@{/webjars/popper.js/umd/popper.min.js}"></script>
-        <script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
-        <link th:href="@{/static/css/style.css}" rel="stylesheet" type="text/css"/>
-        <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
-        <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
-    </head>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6"
+      xmlns:th="http://www.thymeleaf.org">
 
     <body style="background: #FFEFEF;">
         <section th:fragment="info">
@@ -120,7 +110,7 @@
                                             <th class="text-center" scope="col">Nombre</th>
                                             <th class="text-center" scope="col">correo</th>
                                             <th class="text-center" scope="col">asunto</th>
-                                            <th class="text-center" scope="col">Acciones</th> <!-- Nueva columna para el botón -->
+                                            <th sec:authorize="hasRole('ROLE_ADMIN')" class="text-center" scope="col">Acciones</th> <!-- Nueva columna para el botón -->
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -129,7 +119,7 @@
                                             <td class="text-center" th:text="${consulta.nombre}"></td>
                                             <td class="text-center" th:text="${consulta.correo}"></td>
                                             <td class="text-center" th:text="${consulta.asunto}"></td>
-                                            <td class="text-center">
+                                            <td sec:authorize="hasRole('ROLE_ADMIN')" class="text-center">
                                                 <a th:href="@{/consulta/eliminar/}+${consulta.idConsulta}" class="btn btn-primary border-0" type="button" style="background-color: #993955;">
                                                     <i>Eliminar</i>
                                                 </a>
@@ -165,7 +155,7 @@
                                     <div class="col">
                                         <div class="card">
                                             <div class="card-header">
-                                               
+
                                             </div>
                                             <div class="card-body">
                                                 <div class="mb-3">
@@ -178,19 +168,19 @@
                                                     <label for="correo">correo</label>
                                                     <input type="text" class="form-control" 
                                                            name="correo" th:field="*{correo}"
-                                                          readonly="true">
+                                                           readonly="true">
                                                 </div>
                                                 <div class="mb-3">
                                                     <label for="asunto">asunto</label>
                                                     <input type="text" class="form-control" 
                                                            name="asunto" th:field="*{asunto}"
-                                                          readonly="true">
+                                                           readonly="true">
                                                 </div>
                                                 <div class="mb-3">
                                                     <label for="motivoConsulta">consulta</label>
                                                     <input type="text" class="form-control" 
                                                            name="motivoConsulta" th:field="*{motivoConsulta}"
-                                                          readonly="true">
+                                                           readonly="true">
                                                 </div>
                                                 <div class="container py-4 mb-4">
                                                     <div class="row">
@@ -212,21 +202,18 @@
             </div>
         </section>
         <section th:fragment="redes" style="background-color: #FFEFEF;">
-            <div style="text-align: left;">
-                <h4>[[#{nosotros.redesTitulo}]]</h4>
-                <div style="display: flex; justify-content: left;">
-                    <a href="https://www.facebook.com/" target="_blank">
-                        <img src="ruta-de-tu-imagen-facebook.jpg" alt="Facebook" style="width: 30px; height: 30px; margin: 0 10px;">
-                    </a>
-                    <a href="https://www.twitter.com/" target="_blank">
-                        <img src="ruta-de-tu-imagen-twitter.jpg" alt="Twitter" style="width: 30px; height: 30px; margin: 0 10px;">
-                    </a>
-                    <a href="https://www.instagram.com/" target="_blank">
-                        <img src="ruta-de-tu-imagen-instagram.jpg" alt="Instagram" style="width: 30px; height: 30px; margin: 0 10px;">
-                    </a>
-                    <!-- Añade otros enlaces y logotipos de redes sociales según sea necesario -->
-                </div>
+            <div style="display: flex; justify-content: left; gap: 20px;">
+                <a href="https://www.facebook.com/ANASOVI" target="_blank" style="font-size: 24px;">
+                    <i class="fab fa-facebook-square" style="color: blue"></i>  
+                </a>
+                <a href="https://twitter.com/anasovicr" target="_blank" style="font-size: 24px;">
+                    <i class="fab fa-twitter" ></i>
+                </a>
+                <a href="https://www.instagram.com/anasovicr/" target="_blank" style="font-size: 24px;">
+                    <i class="fab fa-instagram" style="color: coral"></i>
+                </a>
             </div>
+
             <div>
                 <h4>[[#{nosotros.nosotrosTitulo}]]</h4>
                 <p>[[#{nosotros.nosotrosDesc}]]
@@ -236,6 +223,6 @@
             </figure>
 
         </section>
-        
+
     </body>
 </html>

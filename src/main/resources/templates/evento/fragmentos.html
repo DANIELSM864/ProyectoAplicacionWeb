@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6"
       xmlns:th="http://www.thymeleaf.org">
     <head th:fragment="head">
         <title>Anasovi</title>
@@ -7,45 +8,21 @@
     </head>
     <body style="background-color: #FFEFEF;">
 
-    <section th:fragment="informacion" style="display: flex; background-color: #FFEFEF">
-        <aside style="width: 70%; margin-left: 180px; ">
-            <!-- Contenido del aside aquí -->
-            <h2 style="text-align: center; margin: 30px 0;">[[#{eventos.eventosTitulo}]]</h2>
-            
-            <div style="background-color: white; border-radius: 20px; padding: 20px; margin: 20px 0;">
-                <h4>[[#{eventos.proximosTitulo}]]</h4>
-                
-                <p>"¡Bienvenido a la página de eventos de ANASOVI! Aquí, te presentamos las próximas 
-                    experiencias que organizamos con cariño. Mantente al tanto de nuestras actividades, 
-                    únete a la diversión y descubre cómo puedes ser parte de eventos significativos con ANASOVI. 
-                    ¡No te pierdas la oportunidad de vivir momentos especiales con nosotros!"</p>
-            </div>
+        <section th:fragment="informacion" style="display: flex; background-color: #FFEFEF">
+            <aside style="width: 70%; margin-left: 180px; ">
+                <!-- Contenido del aside aquí -->
+                <h2 style="text-align: center; margin: 30px 0;">[[#{eventos.eventosTitulo}]]</h2>
 
-            <!-- Sección para imágenes -->
-            <div th:fragment="imagenes" style="margin-top: 20px;">
-                <h3></h3>
-                <div style="display: flex; justify-content: space-between;">
-                    <div style="width: 45%;">
-                        <img src="ruta-de-tu-imagen-1.jpg" alt="Imagen 1" style="width: 100%;">
-                    </div>
-                    <div style="width: 45%;">
-                        <img src="ruta-de-tu-imagen-2.jpg" alt="Imagen 2" style="width: 100%;">
-                    </div>
+                <div style="background-color: white; border-radius: 20px; padding: 20px; margin: 20px 0;">
+                    <h4>[[#{eventos.proximosTitulo}]]</h4>
+
+                    <p>[[#{eventos.proximos}]]</p>
                 </div>
-           
+            </aside>
 
-            
-    </div>
-    
+        </section>
 
-
-
-
-        </aside>
-
-    </section>
-
-     <section th:fragment="agregarEvento">
+        <section th:fragment="agregarEvento">
             <div class="row">
                 <div class="col-md-2"></div>
                 <div class="col-md-8">
@@ -167,57 +144,8 @@
             </div>
         </section>
 
-        <!-- 3 Sección principal para mostrar la informaccion de la entidad arbol -->
-        <section  th:fragment="listadoEventos" id="eventos">
-            <div style="background-color: #FFEFEF;">
-                <h2 class="text-center">Lista de personas donadores</h2>
-
-                <div class="row justify-content-center">
-                    <div class="col-md-9">
-                        <div class="card">
-                            <div class="card-header">
-                                <h4 class="text-center">Listado</h4>
-                                <a th:href="@{/evento/nuevo}" class="btn btn-primary border-0" type="button" style="background-color: #993955;">
-                                    <i>Agregar donador</i>
-                                </a>
-                            </div>
-                            <div th:if="${eventos != null and !eventos.empty}">
-                                <table class="table">
-                                    <thead class="table-light">
-                                        <tr>
-                                            <th class="text-center" scope="col">#</th>
-                                            <th class="text-center" scope="col">descripcion</th>
-                                            <th class="text-center" scope="col">Acciones</th> <!-- Nueva columna para el botón -->
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr th:each="evento, contador : ${eventos}">
-                                            <td class="text-center" th:text="${contador.count}"></td>
-                                            <td class="text-center" th:text="${evento.descripcion}"></td>
-                                            <td class="text-center">
-                                                <a th:href="@{/evento/eliminar/}+${evento.id_eventos}" class="btn btn-primary border-0" type="button" style="background-color: #993955;">
-                                                    <i>Eliminar</i>
-                                                </a>
-                                                <a th:href="@{/evento/modificar/}+${evento.id_eventos}" class="btn btn-primary border-0" type="button" style="background-color: #993955;">
-                                                    <i>Modificar</i>
-                                                </a>
-                                            </td>
-
-
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                            <div class="text-center p-2" th:if="${eventos == null or eventos.empty}">
-                                <span>lista vacía</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
         <section th:fragment="listadoEventosCards" style="background-color: #FFEFEF; padding: 4em;">
-            <div style="padding: 1em; margin-left: 30px" >
+            <div style="padding: 1em; margin-left: 30px" sec:authorize="hasRole('ROLE_ADMIN')">
                 <a th:href="@{/evento/nuevo}" class="btn btn-primary border-0" type="button" style="background-color: #993955;">
                     <i>Agregar evento</i>
                 </a> 
@@ -235,7 +163,7 @@
                     <div class="card-body">   
                         [[${evento.descripcion}]]
                     </div>
-                    <div class="card-body">
+                    <div class="card-body" sec:authorize="hasRole('ROLE_ADMIN')">
                         <a th:href="@{/evento/eliminar/}+${evento.id_eventos}" class="btn btn-primary border-0" type="button" style="background-color: #993955;">
                             <i>Eliminar</i>
                         </a>

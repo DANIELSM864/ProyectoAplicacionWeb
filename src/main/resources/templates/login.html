@@ -1,11 +1,14 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:th="http://wwww.thymeleaf.org">
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6"
+      xmlns:th="http://www.thymeleaf.org">
     <head th:replace="~{layout/plantilla :: head}">
-        <title>TechShop</title>
+        <title></title>
         <meta charset="UTF-8"/>
     </head>
+
     <body>
+        <header th:replace="~{layout/plantilla :: header}"/>
         <div class="container my-5">
             <div class="row align-items-center"> 
                 <div class="col-md-3"></div>
@@ -20,10 +23,17 @@
                                         <input class="form-control" type="text" name="username" id="username"/></div></div>
                                 <div class="form-group row my-3">
                                     <label class="col-md-5 my-auto" for="password"><i class="fas fa-key"></i>[[#{login.password}]]</label>
-                                    <div class="col-md-7 my-auto"><input class="form-control" type="password" name="password" id="password"/></div></div>
+                                    <div class="col-md-7 my-auto"><input class="form-control" type="password" name="password" id="password"/></div>
+                                </div>
                                 <div class="card-footer col text-center">
-                                    <button class="btn btn-success" type="submit" style="background-color: #993955; color: white;">
-                                        <span class="btn"><i class="fas fa-sign-in-alt"></i>[[#{login.login}]]</span>
+                                    <button  class="btn" style="background-color: #993955; color: white;">
+                                        <a th:href="@{/registro/nuevo}" class="btn">Registrarse</a>
+                                    </button>
+                                    <button class="btn" style="background-color: #993955; color: white;">
+                                        <a th:href="@{/registro/recordar}" class="btn">Recordar</a>
+                                    </button>
+                                    <button class="btn" type="submit" style="background-color: #993955; color: white;">
+                                        <a>Loguearse</a>
                                     </button>
                                 </div>
                             </form>                            

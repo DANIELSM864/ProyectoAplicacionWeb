@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6"
       xmlns:th="http://www.thymeleaf.org">
     <head>
         <title>TODO supply a title</title>
@@ -8,23 +9,22 @@
 
     </head>
     <body style="background-color: #FFEFEF;">
-
+        
         <section th:fragment="informacion" style="display: flex; background-color: #FFEFEF">
-            <aside style="width: 70%; margin-left: 180px;">
-                <div style="background-color: #FFEFEF;">
-                    <h3 style="margin: 20px 0">[[#{donaciones.donacionesTitulo}]]</h3>
+            <aside style="width: 70%; margin-left: 180px; ">
+                <!-- Contenido del aside aquí -->
+                <h2 style="text-align: center; margin: 30px 0;">[[#{donaciones.donacionesTitulo}]]</h2>
 
+                <div style="background-color: white; border-radius: 20px; padding: 20px; margin: 20px 0;">
                     <h4>[[#{donaciones.deseasDonacionesTitulo}]]</h4>
-                    <div style="background-color: white; border-radius: 20px; padding: 20px; margin: 10px 0;">
-                        <p>[[#{donaciones.deseasDonacionesDesc}]] </p>
-                    </div>
 
-
-                    <h4 style="margin-top: 40px">[[#{donaciones.inforParaDonacionTitulo}]]</h4>
+                    <p>[[#{donaciones.deseasDonacionesDesc}]]</p>
                     <figure>
                         <img src="https://anasovi.org/wp-content/uploads/2022/09/WhatsApp-Image-2022-08-31-at-10.40.29-PM-768x768.jpeg" alt="Texto alternativo">
-                    </figure>                          </div>
-            </aside>          
+                    </figure>
+                </div>
+            </aside>
+
         </section>
         <!-- 3 Sección principal para mostrar la informaccion de la entidad donacion -->
         <section  th:fragment="listadoDonadores" id="donacions">
@@ -35,9 +35,9 @@
                 <div class="row justify-content-center">
                     <div class="col-md-9">
                         <div class="card">
-                            <div class="card-header">
-                                <h4 class="text-center">[[#{donaciones.listaTitulo}]]</h4>
-                                <a th:href="@{/donacion/nuevoD}" class="btn btn-primary border-0" type="button" style="background-color: #993955;">
+                            <div class="card-header" >
+                                <h4  class="text-center">[[#{donaciones.listaTitulo}]]</h4>
+                                <a sec:authorize="hasRole('ROLE_ADMIN')" th:href="@{/donacion/nuevoD}" class="btn btn-primary border-0" type="button" style="background-color: #993955;">
                                     <i>[[#{donaciones.agregarDonador}]]</i>
                                 </a>
                             </div>
@@ -49,7 +49,7 @@
                                             <th class="text-center" scope="col">Nombre</th>
                                             <th class="text-center" scope="col">1.º Apellido</th>
                                             <th class="text-center" scope="col">2.º Apellido</th>
-                                            <th class="text-center" scope="col">Acciones</th> <!-- Nueva columna para el botón -->
+                                            <th class="text-center" scope="col" sec:authorize="hasRole('ROLE_ADMIN')">Acciones</th> <!-- Nueva columna para el botón -->
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -58,7 +58,7 @@
                                             <td class="text-center" th:text="${donacion.nombre}"></td>
                                             <td class="text-center" th:text="${donacion.primerApellido}"></td>
                                             <td class="text-center" th:text="${donacion.segundoApellido}"></td>
-                                            <td class="text-center">
+                                            <td class="text-center" sec:authorize="hasRole('ROLE_ADMIN')">
                                                 <a th:href="@{/donacion/eliminar/}+${donacion.cedula}" class="btn btn-primary border-0" type="button" style="background-color: #993955;">
                                                     <i>Eliminar</i>
                                                 </a>
@@ -80,7 +80,7 @@
             </div>
         </section>
         
-        <section th:fragment="editarDonador">
+        <section th:fragment="editarDonador" >
             <div class="row">
                 <div class="col-md-2"></div>
                 <div class="col-md-8">

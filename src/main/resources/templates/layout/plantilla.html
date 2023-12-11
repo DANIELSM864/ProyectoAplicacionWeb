@@ -1,16 +1,17 @@
 <!DOCTYPE html>
-<html  xmlns="http://www.w3.org/1999/xhtml"
-       xmlns:th="http://www.thymeleaf.org">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6"
+      xmlns:th="http://www.thymeleaf.org">
     <head  th:fragment="head">
         <title>Anasovi</title>
         <meta charset="UTF-8"/>
-        <link rel="stylesheet" th:href="@{/style.css}"/>
+        <link th:href="@{/css/style.css}" />
         <link th:href="@{/webjars/bootstrap/css/bootstrap.min.css}" rel="stylesheet"/>
         <link th:href="@{/webjars/font-awesome/css/all.css}" rel="stylesheet"/>
         <script th:src="@{/webjars/jquery/jquery.min.js}"></script>
+        <script th:src="@{/js/carrito.js}"></script>
         <script th:src="@{/webjars/popper.js/umd/popper.min.js}"></script>
         <script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
-        <link th:href="@{/static/css/style.css}" rel="stylesheet" type="text/css"/>
     </head>
     <body style="background-color: #FFEFEF;">
 
@@ -23,9 +24,10 @@
                         <li class="nav-item"><a th:href="@{/noticia/paginaNoticia}" class="nav-link  fw-bold" style="color: #0F0326;">[[#{layout.noticias}]]</a></li>
                         <li class="nav-item"><a th:href="@{/evento/paginaEvento}" class="nav-link  fw-bold" style="color: #0F0326;">[[#{layout.eventos}]]</a></li>
                         <li class="nav-item"><a th:href="@{/producto/paginaProducto}" class="nav-link  fw-bold" style="color: #0F0326;">[[#{layout.producto}]]</a></li>
-                         <li class="nav-item"><a th:href="@{/categoria/paginaCategoria}" class="nav-link  fw-bold" style="color: #0F0326;">[[#{layout.categoria}]]</a></li>
+                        <li sec:authorize="hasRole('ROLE_ADMIN')" class="nav-item"><a th:href="@{/categoria/paginaCategoria}" class="nav-link  fw-bold" style="color: #0F0326;">[[#{layout.categoria}]]</a></li>
                         <li class="nav-item"><a th:href="@{/donacion/paginaDonacion}" class="nav-link  fw-bold" style="color: #0F0326;">[[#{layout.donaciones}]]</a></li>
                         <li class="nav-item"><a th:href="@{/informate/paginaInformate}" class="nav-link  fw-bold" style="color: #0F0326;">[[#{layout.informate}]]</a></li>
+                        <li class="nav-item"><a th:href="@{/usuario/paginaUsuario}" class="nav-link  fw-bold" style="color: #0F0326;">[[#{layout.Usuario}]]</a></li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" style="color: #0F0326;" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">[[#{plantilla.idioma}]]</a>
                             <ul class="dropdown-menu dropdown-menu-dark">
@@ -34,6 +36,31 @@
                             </ul>
                         </li>
                     </ul>
+                    <ul class="nav-item" sec:authorize='!isAuthenticated()'>
+                        <li>
+                            <a th:href="@{/login}" class="nav-link  fw-bold" style="color: #0F0326;">
+                                <i class="fas fa-user-alt"></i>
+                            </a>
+                        </li>
+                    </ul>
+                    <ul class="navbar-nav" sec:authorize='isAuthenticated()'>
+                            <li class="nav-item text-white my-auto" >
+                                <img th:src='@{${session.usuarioImagen}}' height="40" class="rounded-circle"/>
+                                <span sec:authentication='name'>John</span>
+                            </li>
+                            <li class="nav-item" >
+                                <form method="post"
+                                      th:action='@{/logout}'>
+                                    <button class="btn btn-dark">
+                                        <i class="fas fa-sign-out-alt"></i>
+
+
+                                    </button>
+
+                                </form>
+                            </li>
+
+                        </ul>
                 </div>
             </div>
 
@@ -62,7 +89,7 @@
                             <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Eventos</a></li>
                             <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Noticias</a></li>
                             <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Producto</a></li>
-                             <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Categoria</a></li>
+                            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Categoria</a></li>
                             <li class="nav-item mb-2"><a th:href="@{/donacion/paginaDonacion}" class="nav-link p-0 text-body-secondary">Donaciones</a></li>
                             <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Nosotros</a></li>
                         </ul>
