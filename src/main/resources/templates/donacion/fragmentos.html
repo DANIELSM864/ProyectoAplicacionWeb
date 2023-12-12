@@ -9,7 +9,7 @@
 
     </head>
     <body style="background-color: #FFEFEF;">
-        
+
         <section th:fragment="informacion" style="display: flex; background-color: #FFEFEF">
             <aside style="width: 70%; margin-left: 180px; ">
                 <!-- Contenido del aside aquí -->
@@ -79,7 +79,7 @@
                 </div>
             </div>
         </section>
-        
+
         <section th:fragment="editarDonador" >
             <div class="row">
                 <div class="col-md-2"></div>
@@ -89,7 +89,7 @@
                           th:object="${donacion}"                         
                           enctype="multipart/form-data">
                         <div id=details>
-                            
+
                             <div class="container">
                                 <div class="row">
                                     <div class="col">
@@ -100,9 +100,7 @@
                                             <div class="card-body">
                                                 <div class="mb-3">
                                                     <label  for="cedula">Cédula</label>
-                                                    <input type="number" class="form-control" 
-                                                           name="cedula" th:field="*{cedula}"
-                                                           required="true">
+                                                    <input type="number" class="form-control" name="cedula" th:field="*{cedula}"required="true">
                                                 </div>
                                                 <div class="mb-3">
                                                     <label for="nombre">Nombre</label>

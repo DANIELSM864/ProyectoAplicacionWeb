@@ -6,9 +6,9 @@
     <body style="background: #FFEFEF;">
         <section th:fragment="info">
 
-            <div style="background-color: #FFEFEF;">
+            <div style="background-color: #FFEFEF; padding: 40px">
 
-                <div style="background-color: #ffffff; border-radius: 2%; padding: 40px; max-width: 1200px; width: 100%; ">
+                <div class="letra-normal" style="background-color: #ffffff; border-radius: 2%; padding: 40px; max-width: 1200px; width: 100%; ">
                     <h3> [[#{nosotros.contacteTitulo}]]</h3>
                     <!-- Contenido de la sección "main" -->
                     <h4>[[#{nosotros.representanteLegalTitulo}]]</h4>
@@ -29,7 +29,7 @@
             </div>
         </section>
 
-        <section th:fragment="formulario">
+        <section  th:fragment="formulario" style=" background-color: #FFEFEF;padding: 40px;">
             <div style="background-color: #FFEFEF;">
 
                 <h4>[[#{nosotros.formularioContactoTitulo}]]</h4>
@@ -49,7 +49,7 @@
                                             <div class="col">
                                                 <div class="card">
                                                     <div class="card-header" style="background-color: #993955; color: white;">
-                                                        <h4>Formulario de consulta</h4>
+                                                        <h4 class="letra-normal">Formulario de consulta</h4>
                                                     </div>
                                                     <div class="card-body">
                                                         <div class="mb-3">
@@ -91,7 +91,7 @@
                 </div>
             </div>
         </section>
-        <section  th:fragment="listadoConsultas" id="consultas">
+        <section  th:fragment="listadoConsultas" id="consultas" sec:authorize="hasRole('ROLE_ADMIN')">
 
             <div style="background-color: #FFEFEF;">
                 <h2 class="text-center">[[#{consultaes.listaConsultaesTitulo}]]</h2>
@@ -201,15 +201,15 @@
                 </div>
             </div>
         </section>
-        <section th:fragment="redes" style="background-color: #FFEFEF;">
+        <section th:fragment="redes" style="background-color: #FFEFEF; padding: 40px">
             <div style="display: flex; justify-content: left; gap: 20px;">
-                <a href="https://www.facebook.com/ANASOVI" target="_blank" style="font-size: 24px;">
+                <a href="https://www.facebook.com/ANASOVI" target="_blank" style="font-size: 35px;">
                     <i class="fab fa-facebook-square" style="color: blue"></i>  
                 </a>
-                <a href="https://twitter.com/anasovicr" target="_blank" style="font-size: 24px;">
+                <a href="https://twitter.com/anasovicr" target="_blank" style="font-size: 35px;">
                     <i class="fab fa-twitter" ></i>
                 </a>
-                <a href="https://www.instagram.com/anasovicr/" target="_blank" style="font-size: 24px;">
+                <a href="https://www.instagram.com/anasovicr/" target="_blank" style="font-size: 35px;">
                     <i class="fab fa-instagram" style="color: coral"></i>
                 </a>
             </div>

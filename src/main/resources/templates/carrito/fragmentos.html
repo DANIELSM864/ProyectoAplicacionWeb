@@ -6,13 +6,13 @@
         <title></title>
     </head>
     <body>
-        <section th:fragment="listadoProductos" id="productos" sec:authorize="hasRole('ROLE_USER')" style="background-color: #FFEFEF">
+        <section th:fragment="listadoProductos" id="productos" sec:authorize="hasRole('ROLE_USER')" style="background-color: #FFEFEF; padding: 40px">
             <div class="container">
                 <div th:fragment="verCarrito">            
                     <form action="/carrito/paginaCarrito">
                         <button
                             type="submit"
-                            class="btn btn-primary">
+                            class="btn" style="background-color: #993955; color: white">
                             <i class="fas fa-cart-plus"></i>
                             Ver carrito
                         </button>
@@ -20,25 +20,40 @@
                 </div>     
                 <div class="row row-cols-2" >
                     <h2 class="inline">[[#{index.nuestrosProductos}]]</h2>
-                    <div id="resultsBlock"></div></div>
+                    <div id="resultsBlock"></div>
+                        
+                </div>
                 <div class="row row-cols-3" 
                      th:if="${productos != null and !productos.empty}">
-                    <div class="card" th:each="producto : ${productos}">
-                        <div class="card-body">
+                    <div class="card mb-3 mx-3" th:each="producto : ${productos}">
+                        <div class="card-header" style="background-color: #ffffff">
                             <h5 class="card-title">[[${producto.descripcion}]]</h5>
+                        </div>
+                        <div class="card-body">
                             <figure>
                                 <img th:src="@{${producto.rutaImagen}}" height="200"/>
-                                <figcaption>[[${producto.precio}+' ('+${producto.existencias}+')']]
+                                <figcaption style="font-size: 18px; color: #0F0326; font-weight: bold;">
+                                    Cantidad = <span th:text="${producto.existencias}"></span> unidades disponibles
+                                </figcaption>
+                                <figcaption style="font-size: 18px; color: #0F0326; font-weight: bold;">
+                                    Precio = ₡<span th:text="${producto.precio}"></span> 
                                 </figcaption>
                             </figure>
+
+
+                        </div>
+                        <div class="card-body">
                             <form>
                                 <input type="hidden" name="texto" th:value="${producto.idProducto}"/>
                                 <input type="hidden" name="texto" th:value="${producto.existencias}"/>
-                                <button class="btn btn-ligth" id="addCar" 
+                                <button style="background-color: #993955; color: white" class="btn" id="addCar" 
                                         name="addCar" onclick="addCard(this.form)" 
-                                        type="button"><i class="fas fa-cart-plus"></i>
+                                        type="button"><i></i>Agregar al carrito
                                 </button>
                             </form>
+                        </div>
+                        <div class="card-footer" style="background-color: #ffffff">
+
                             <p class="card-text">[[${producto.detalle}]]</p>                            
                         </div>
                     </div>
@@ -48,9 +63,9 @@
             </div>
         </section>
 
-              
 
-        <section th:fragment="listadoCarrito" id="items">
+
+        <section th:fragment="listadoCarrito" id="items" style="padding: 40px">
             <div class="container">
                 <div class="row">
                     <div class="col-md-9">

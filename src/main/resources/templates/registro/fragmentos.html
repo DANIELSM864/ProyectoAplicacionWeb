@@ -3,7 +3,7 @@
       xmlns:th="http://www.thymeleaf.org"
       xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
     <head th:replace="~{layout/plantilla :: head}">
-        <title>TechShop</title>
+        <title>Anasovi</title>
     </head>
     <body>
         <!-- 1 Fragmento que se utiliza en la página para regresar -->
@@ -12,26 +12,28 @@
                 <div class="col-md-3">
                     <section>
                         <div class="col-md-4 d-grid">
-                            <a th:href="@{/login}" class="btn btn-primary">
-                                <i class="fas fa-arrow-left"></i> [[#{accion.regresar}]]
+                            <a th:href="@{/login}" class="btn" style="background-color: #993955;">
+                                <i class="fas fa-times"></i> [[#{accion.regresar}]]
                             </a>
                         </div>
                     </section>
                 </div>
                 <div class="row py-2 justify-content-center">
                     <div class="col-md-3">
-                        <form method="POST" th:action="@{/registro/crearUsuario}" th:object="${usuario}" class="was-validated">
+                        <form method="POST" th:action="@{/registro/crearUsuario}" th:object="${usuario}">
                             <div class="card">
-                                <div class="card-header">
+                                <div class="card-header" style="background-color: #993955;">
                                     <h4>[[#{usuario.agregar}]]</h4>
                                 </div>
                                 <div class="card-body">
                                     <div class="mb-3">
                                         <label for="username">[[#{usuario.username}]]</label>
-                                        <input type="text" class="form-control" name="username" th:field="*{username}" required="true"/></div>
+                                        <input type="text" class="form-control" name="username" th:field="*{username}" required="true"/>
+                                    </div>
                                     <div class="mb-3">
                                         <label for="nombre">[[#{usuario.nombre}]]</label>
-                                        <input type="text" class="form-control" name="nombre" th:field="*{nombre}" required="true"/></div>
+                                        <input type="text" class="form-control" name="nombre" th:field="*{nombre}" required="true"/>
+                                    </div>
                                     <div class="mb-3">
                                         <label for="Primer apellido">[[#{usuario.primerApellido}]]</label>
                                         <input type="text" class="form-control" name="primerApellido" th:field="*{primerApellido}"
@@ -49,15 +51,20 @@
                                                required="true"/>
                                     </div>
                                 </div>
-                                <div class="card-footer text-end">                                                
-                                    <button type="submit" class="btn btn-success">
+
+                                <div class="card-footer d-flex justify-content-between">
+                                    <a th:href="@{/login}" class="btn" style="background-color: #993955;">
+                                        <i class="fas fa-times"></i> [[#{accion.regresar}]]
+                                    </a>
+                                    <button type="submit" class="btn" style="background-color: #993955">
                                         <i class="fas fa-envelope"></i> [[#{usuario.activacion}]]
-                                    </button></div>
+                                    </button>
+                                </div>
                             </div>
                         </form>
                     </div>
                 </div>
-                </div>
+            </div>
         </section>
 
         <!-- 2 Fragmento que se utiliza activar un usuario -->

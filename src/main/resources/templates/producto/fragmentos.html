@@ -23,9 +23,6 @@
             </aside>
 
         </section>
-
-
-
         <!-- 2 Fragmento para agregar producto, es la ventana modal -->
         <section th:fragment="agregarProducto" style="background-color: #FFEFEF">
             <div id="agregarProducto" class="modal fade" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -87,28 +84,28 @@
 
         <section th:fragment="listadoProductos" id="productos" sec:authorize="hasRole('ROLE_ADMIN')" style="background-color: #FFEFEF" >
             <div class="container">
-                
+
                 <div class="row">
                     <div class="col-md-9">
                         <div class="card">
-                            
+
                             <div class="card-header">
                                 <h4>[[#{producto.listado}]]</h4>
                                 <div class="container">
-                <div class="row">
-                    <div class="col-md-3" sec:authorize="hasRole('ROLE_ADMIN')">   
-                        <button 
-                            type="button" 
-                            class="btn" 
-                            data-bs-toggle="modal" 
-                            style="background-color: #993955; color: white;"
-                            data-bs-target="#agregarProducto">
+                                    <div class="row">
+                                        <div class="col-md-3" sec:authorize="hasRole('ROLE_ADMIN')">   
+                                            <button 
+                                                type="button" 
+                                                class="btn" 
+                                                data-bs-toggle="modal" 
+                                                style="background-color: #993955; color: white;"
+                                                data-bs-target="#agregarProducto">
 
-                            [[#{producto.agregar}]]
-                        </button>
-                    </div>
-                </div>
-            </div>
+                                                [[#{producto.agregar}]]
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                             <div th:if="${productos != null and !productos.empty}" class="table-responsive">
                                 <table class="table table-bordered table-striped table-hover">
@@ -233,7 +230,7 @@
             <div class="container py-4 mb-4 bg-light">
                 <div class="row">
                     <div class="col-md-4 d-grid">
-                        <a th:href="@{/producto/listado}" style="background-color: #993955; color: white;" class="btn">
+                        <a th:href="@{/producto/paginaProducto}" style="background-color: #993955; color: white;" class="btn">
                             <i class="fas fa-arrow-left"></i> [[#{accion.regresar}]]
                         </a>
                     </div>
