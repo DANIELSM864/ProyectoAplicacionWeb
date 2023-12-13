@@ -33,7 +33,7 @@
 
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" style="color: white;"></button>
                         </div>
-                        <form th:action="@{/producto/guardar}" th:object="${producto}" method="POST" class="was-validated" enctype="multipart/form-data">
+                        <form th:action="@{/producto/guardar}" th:object="${producto}" method="POST" enctype="multipart/form-data">
                             <div class="modal-body">
 
                                 <div class="mb-3">
@@ -74,7 +74,7 @@
                                 </div>
                             </div>
                             <div class="modal-footer">
-                                <button class="btn btn-primary" type="submit" style="background-color: #993955;">Guardar</button>
+                                <button class="btn" type="submit" style="background-color: #993955; color: white">Guardar</button>
                             </div>
                         </form>
                     </div>

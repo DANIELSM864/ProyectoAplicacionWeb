@@ -5,7 +5,7 @@
     <head  th:fragment="head">
         <title>Anasovi</title>
         <meta charset="UTF-8"/>
-        
+
         <link th:href="@{/webjars/bootstrap/css/bootstrap.min.css}" rel="stylesheet"/>
         <link th:href="@{/webjars/font-awesome/css/all.css}" rel="stylesheet"/>
         <script th:src="@{/webjars/jquery/jquery.min.js}"></script>
@@ -45,14 +45,14 @@
                         </ul>
                         <ul class="navbar-nav" sec:authorize='isAuthenticated()'>
                             <li class="text-white my-auto" >
-                                <img th:src='@{${session.usuarioImagen}}' height="40" class="rounded-circle"/>
-                                <span sec:authentication='name'>John</span>
+
+
                             </li>
                             <li>
                                 <form method="post"
                                       th:action='@{/logout}'>
                                     <button class="btn btn-dark">
-                                        <i class="fas fa-sign-out-alt"></i>
+                                        <span sec:authentication='name'></span><i> </i><i class="fas fa-sign-out-alt"></i>
                                     </button>
                                 </form>
                             </li>
@@ -80,42 +80,21 @@
 
                     </div>
 
-                    <div class="col mb-3">
-                        <h5>Navegacion</h5>
+                    <div class="col mb-3 ms-auto"> <!-- Añade la clase ms-auto aquí -->
+                        <h5>Section</h5>
                         <ul class="nav flex-column">
-                            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Principal</a></li>
-                            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Eventos</a></li>
-                            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Noticias</a></li>
-                            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Producto</a></li>
-                            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Categoria</a></li>
+                            <li class="nav-item mb-2"><a th:href="@{/templates/index}" class="nav-link p-0 text-body-secondary">Principal</a></li>
+                            <li class="nav-item mb-2"><a th:href="@{/evento/paginaEvento}" class="nav-link p-0 text-body-secondary">Eventos</a></li>
+                            <li class="nav-item mb-2"><a th:href="@{/noticia/paginaNoticia}" class="nav-link p-0 text-body-secondary">Noticias</a></li>
+                            <li class="nav-item mb-2"><a th:href="@{/producto/paginaProducto}" class="nav-link p-0 text-body-secondary">Producto</a></li>
+                            <li class="nav-item mb-2"><a th:href="@{/informate/paginaInformate}" class="nav-link p-0 text-body-secondary">Informate</a></li>
                             <li class="nav-item mb-2"><a th:href="@{/donacion/paginaDonacion}" class="nav-link p-0 text-body-secondary">Donaciones</a></li>
-                            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Nosotros</a></li>
-                        </ul>
-                    </div>
-
-                    <div class="col mb-3">
-                        <h5>Section</h5>
-                        <ul class="nav flex-column">
-                            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Home</a></li>
-                            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Features</a></li>
-                            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Pricing</a></li>
-                            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">FAQs</a></li>
-                            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">About</a></li>
-                        </ul>
-                    </div>
-
-                    <div class="col mb-3">
-                        <h5>Section</h5>
-                        <ul class="nav flex-column">
-                            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Home</a></li>
-                            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Features</a></li>
-                            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Pricing</a></li>
-                            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">FAQs</a></li>
-                            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">About</a></li>
+                            <li class="nav-item mb-2"><a th:href="@{/consulta/paginaConsulta}" class="nav-link p-0 text-body-secondary">Nosotros</a></li>
                         </ul>
                     </div>
                 </div>
             </div>
         </footer>
+
     </body>
 </html>

@@ -8,13 +8,13 @@
         <meta charset="UTF-8">
 
     </head>
-    <body style="background-color: #FFEFEF;">
+    <body >
 
 
         <!-- 3 Sección principal para mostrar la informaccion de la entidad usuario -->
-        <section  th:fragment="listadoUsuarios" id="usuarios">
+        <section  th:fragment="listadoUsuarios" id="usuarios" style="padding: 40px; background-color: #FFEFEF" >
 
-            <div style="background-color: #FFEFEF;">
+            <div>
                 <h2 class="text-center">[[#{usuarios.listaUsuariosTitulo}]]</h2>
 
                 <div class="row justify-content-center">
@@ -26,8 +26,8 @@
                                     <i>[[#{usuarios.agregarUsuario}]]</i>
                                 </a>
                             </div>
-                            <div th:if="${usuarios != null and !usuarios.empty}">
-                                <table class="table">
+                            <div th:if="${usuarios != null and !usuarios.empty}" >
+                                <table class="table" >
                                     <thead class="table-light">
                                         <tr>
                                             <th class="text-center" scope="col">#</th>
@@ -67,7 +67,7 @@
             </div>
         </section>
 
-        <section th:fragment="editarUsuario" >
+        <section th:fragment="editarUsuario" style="padding: 40px; background-color: #FFEFEF">
             <div class="row">
                 <div class="col-md-2"></div>
                 <div class="col-md-8">
