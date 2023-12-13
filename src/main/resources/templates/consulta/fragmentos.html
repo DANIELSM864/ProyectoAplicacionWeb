@@ -49,7 +49,7 @@
                                             <div class="col">
                                                 <div class="card">
                                                     <div class="card-header" style="background-color: #993955; color: white;">
-                                                        <h4 class="letra-normal">Formulario de consulta</h4>
+                                                        <h4 class="letra-normal">[[#{nosotros.formularioDeConsulta}]]</h4>
                                                     </div>
                                                     <div class="card-body">
                                                         <div class="mb-3">
@@ -76,7 +76,7 @@
                                                         </div>
                                                         <div class="col-md-4 d-grid mx-auto">
                                                             <button style="background-color: #993955;" class="btn btn-primary border-0" type="submit">
-                                                                <i class="fas fa-check"></i> Enviar
+                                                                <i class="fas fa-check"></i> [[#{boton.enviar}]]
                                                             </button>
                                                         </div>
                                                     </div>
@@ -100,17 +100,17 @@
                     <div class="col-md-9">
                         <div class="card">
                             <div class="card-header">
-                                <h4 class="text-center">listado</h4>
+                                <h4 class="text-center">[[#{lista.vacia}]]</h4>
                             </div>
                             <div th:if="${consultas != null and !consultas.empty}">
                                 <table class="table">
                                     <thead class="table-light">
                                         <tr>
                                             <th class="text-center" scope="col">#</th>
-                                            <th class="text-center" scope="col">Nombre</th>
-                                            <th class="text-center" scope="col">correo</th>
-                                            <th class="text-center" scope="col">asunto</th>
-                                            <th sec:authorize="hasRole('ROLE_ADMIN')" class="text-center" scope="col">Acciones</th> <!-- Nueva columna para el botón -->
+                                            <th class="text-center" scope="col">[[#{usuario.nombre}]]</th>
+                                            <th class="text-center" scope="col">[[#{usuario.correo}]]</th>
+                                            <th class="text-center" scope="col">[[#{nosotros.formularioContactoAsunto}]]</th>
+                                            <th sec:authorize="hasRole('ROLE_ADMIN')" class="text-center" scope="col">[[#{usuario.acciones}]]</th> <!-- Nueva columna para el botón -->
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -154,30 +154,30 @@
                                 <div class="row">
                                     <div class="col">
                                         <div class="card">
-                                           <div class="card-header">
+                                            <div class="card-header">
                                                 <h4>Ver</h4>
                                             </div>
                                             <div class="card-body">
                                                 <div class="mb-3">
-                                                    <label for="nombre">nombre</label>
+                                                    <label for="nombre">[[#{usuario.nombre}]]</label>
                                                     <input type="text" class="form-control" 
                                                            name="titulo" th:field="*{nombre}"
                                                            readonly="true">
                                                 </div>
                                                 <div class="mb-3">
-                                                    <label for="correo">correo</label>
+                                                    <label for="correo">[[#{usuario.correo}]]</label>
                                                     <input type="text" class="form-control" 
                                                            name="correo" th:field="*{correo}"
                                                            readonly="true">
                                                 </div>
                                                 <div class="mb-3">
-                                                    <label for="asunto">asunto</label>
+                                                    <label for="asunto">[[#{nosotros.formularioContactoAsunto}]]</label>
                                                     <input type="text" class="form-control" 
                                                            name="asunto" th:field="*{asunto}"
                                                            readonly="true">
                                                 </div>
                                                 <div class="mb-3">
-                                                    <label for="motivoConsulta">consulta</label>
+                                                    <label for="motivoConsulta">[[#{nosotros.formularioContactoConsulta}]]</label>
                                                     <input type="text" class="form-control" 
                                                            name="motivoConsulta" th:field="*{motivoConsulta}"
                                                            readonly="true">
@@ -186,7 +186,7 @@
                                                     <div class="row">
                                                         <div class="col-md-4 d-grid mx-auto">
                                                             <a style="background-color: #993955;" th:href="@{/consulta/paginaConsulta}" class="btn btn-primary border-0">
-                                                                <i class="fas fa-arrow-left"></i> Regresar
+                                                                <i class="fas fa-arrow-left"></i> [[#{accion.regresar}]]
                                                             </a>
                                                         </div>
                                                     </div>
@@ -224,5 +224,5 @@
 
         </section>
 
-    </body>
+         </body>
 </html>
