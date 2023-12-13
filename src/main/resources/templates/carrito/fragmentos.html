@@ -115,7 +115,7 @@
                         </div>
                     </div>
                     <div class="col-md-3">
-                        <div class="card text-center bg-primary text-white mb-3">
+                       <div class="card text-center text-white mb-3" style="background-color: #993955;">
                             <div class="card-body">
                                 <h3>[[#{carrito.totalCompra}]]</h3>
                                 <h4 class="fs-4">
@@ -123,18 +123,18 @@
                                 </h4>
                             </div>
                         </div>
-                        <div class="card text-center bg-success text-white mb-3">
+                        <div class="card text-center text-white mb-3" style="background-color: #993955;">
                             <div class="card-body">
                                 <a th:href="@{/producto/paginaProducto}"
-                                   class="btn btn-success">
+                                   style="background-color: #993955; color: white;" class="btn btn-success">
                                     <i class='fas fa-reply'></i> [[#{carrito.seguirComprando}]]
                                 </a>
                             </div>
                         </div>
-                        <div class="card text-center bg-info text-white mb-3">
+                        <div class="card text-center text-white mb-3" style="background-color: #993955;">
                             <div class="card-body">
                                 <a th:href="@{/facturar/carrito}"
-                                   class="btn btn-info">
+                                  style="background-color: #993955; color: white;" class="btn btn-info">
                                     <i class='fas fa-fordward'></i> [[#{carrito.facturar}]]
                                 </a>
                             </div>
