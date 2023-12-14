@@ -154,16 +154,15 @@
 
 
         <!-- 4 Fragmento que se utiliza en la página modifca.html -->
-        <section th:fragment="editarProducto">
+        <section th:fragment="editarProducto" style="padding: 40px; background-color: #FFEFEF">
             <div class="row">
                 <div class="col-md-2"></div>
                 <div class="col-md-8">
                     <form method="POST"
                           th:action="@{/producto/guardar}" 
                           th:object="${producto}"
-                          class="was-validated"                          
+                                          
                           enctype="multipart/form-data">
-                        <section th:replace="~{producto/fragmentos :: botonesEditar}"/>
                         <div id=details>
                             <div class="container">
                                 <div class="row">
@@ -213,6 +212,20 @@
                                                            id="activo"
                                                            th:field="*{activo}">
                                                 </div>
+                                                <div class="container py-4 mb-4">
+                                                    <div class="row">
+                                                        <div class="col-md-4 d-grid">
+                                                            <a th:href="@{/producto/paginaProducto}" style="background-color: #993955; color: white;" class="btn">
+                                                                <i class="fas fa-arrow-left"></i> [[#{accion.regresar}]]
+                                                            </a>
+                                                        </div>
+                                                        <div class="col-md-4 d-grid">
+                                                            <button type="submit" style="background-color: #993955; color: white;"class="btn">
+                                                                <i class="fas fa-check"></i> [[#{accion.guardar}]]
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                </div>
 
                                             </div>
                                         </div>
@@ -223,30 +236,6 @@
                     </form>
                 </div>
             </div>
-        </section>
-
-        <!-- 5 Fragmento que se utiliza en el fragmento anterior -->
-        <section th:fragment="botonesEditar" style="background-color: #FFEFEF">
-            <div class="container py-4 mb-4 bg-light">
-                <div class="row">
-                    <div class="col-md-4 d-grid">
-                        <a th:href="@{/producto/paginaProducto}" style="background-color: #993955; color: white;" class="btn">
-                            <i class="fas fa-arrow-left"></i> [[#{accion.regresar}]]
-                        </a>
-                    </div>
-                    <div class="col-md-4 d-grid">                                
-                        <a th:href="@{/producto/eliminar/}+${producto.idProducto}"
-                           style="background-color: #993955; color: white;" class="btn">
-                            <i class="fas fa-trash"></i> [[#{accion.eliminar}]]
-                        </a>
-                    </div>
-                    <div class="col-md-4 d-grid">
-                        <button type="submit" style="background-color: #993955; color: white;"class="btn">
-                            <i class="fas fa-check"></i> [[#{accion.guardar}]]
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </section>
+        </section> 
     </body>
 </html>
