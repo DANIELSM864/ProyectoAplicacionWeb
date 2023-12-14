@@ -46,10 +46,10 @@
                                     <thead class="table-light">
                                         <tr>
                                             <th class="text-center" scope="col">#</th>
-                                            <th class="text-center" scope="col">Nombre</th>
-                                            <th class="text-center" scope="col">1.º Apellido</th>
-                                            <th class="text-center" scope="col">2.º Apellido</th>
-                                            <th class="text-center" scope="col" sec:authorize="hasRole('ROLE_ADMIN')">Acciones</th> <!-- Nueva columna para el botón -->
+                                            <th class="text-center" scope="col">[[#{donaciones.añadirDonadorNombre}]]</th>
+                                            <th class="text-center" scope="col">[[#{donaciones.añadirDonadorPAPE}]]</th>
+                                            <th class="text-center" scope="col">[[#{donaciones.añadirDonadorSAPE}]]</th>
+                                            <th class="text-center" scope="col" sec:authorize="hasRole('ROLE_ADMIN')">[[#{usuario.acciones}]]</th> <!-- Nueva columna para el botón -->
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -60,10 +60,10 @@
                                             <td class="text-center" th:text="${donacion.segundoApellido}"></td>
                                             <td class="text-center" sec:authorize="hasRole('ROLE_ADMIN')">
                                                 <a th:href="@{/donacion/eliminar/}+${donacion.cedula}" class="btn btn-primary border-0" type="button" style="background-color: #993955;">
-                                                    <i>Eliminar</i>
+                                                    <i>[[#{usuario.botonEliminar}]]</i>
                                                 </a>
                                                 <a th:href="@{/donacion/modificar/}+${donacion.cedula}" class="btn btn-primary border-0" type="button" style="background-color: #993955;">
-                                                    <i>Modificar</i>
+                                                    <i>[[#{usuario.botonModificar}]]</i>
                                                 </a>
                                             </td>
                                         </tr>
@@ -130,7 +130,7 @@
 
                                                         <div class="col-md-4 d-grid mx-auto">
                                                             <button style="background-color: #993955;" class="btn btn-primary border-0" type="submit">
-                                                                <i class="fas fa-check"></i> [[[#{donaciones.botonGuardar}]]
+                                                                <i class="fas fa-check"></i> [[#{donaciones.botonGuardar}]]
                                                             </button>
                                                         </div>
                                                     </div>

@@ -121,10 +121,10 @@
                                             <td class="text-center" th:text="${consulta.asunto}"></td>
                                             <td sec:authorize="hasRole('ROLE_ADMIN')" class="text-center">
                                                 <a th:href="@{/consulta/eliminar/}+${consulta.idConsulta}" class="btn btn-primary border-0" type="button" style="background-color: #993955;">
-                                                    <i>Eliminar</i>
+                                                    <i>[[#{accion.eliminar}]]</i>
                                                 </a>
                                                 <a th:href="@{/consulta/ver/}+${consulta.idConsulta}" class="btn btn-primary border-0" type="button" style="background-color: #993955;">
-                                                    <i>Ver</i>
+                                                    <i>[[#{accion.ver}]]</i>
                                                 </a>
                                             </td>
                                         </tr>

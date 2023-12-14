@@ -14,7 +14,7 @@
                             type="submit"
                             class="btn" style="background-color: #993955; color: white">
                             <i class="fas fa-cart-plus"></i>
-                            Ver carrito
+                            [[#{carrito.ver}]]
                         </button>
                     </form>
                 </div>     
@@ -33,10 +33,10 @@
                             <figure>
                                 <img th:src="@{${producto.rutaImagen}}" height="200"/>
                                 <figcaption style="font-size: 18px; color: #0F0326; font-weight: bold;">
-                                    Cantidad = <span th:text="${producto.existencias}"></span> unidades disponibles
+                                    [[#{carrito.cantidad}]] = <span th:text="${producto.existencias}"></span> unidades disponibles
                                 </figcaption>
                                 <figcaption style="font-size: 18px; color: #0F0326; font-weight: bold;">
-                                    Precio = ₡<span th:text="${producto.precio}"></span> 
+                                    [[#{carrito.precio}]] = ₡<span th:text="${producto.precio}"></span> 
                                 </figcaption>
                             </figure>
 
@@ -48,7 +48,7 @@
                                 <input type="hidden" name="texto" th:value="${producto.existencias}"/>
                                 <button style="background-color: #993955; color: white" class="btn" id="addCar" 
                                         name="addCar" onclick="addCard(this.form)" 
-                                        type="button"><i></i>Agregar al carrito
+                                        type="button"><i></i> [[#{carrito.agregar}]]
                                 </button>
                             </form>
                         </div>
@@ -81,7 +81,7 @@
                                             <th>[[#{producto.descripcion}]]</th>
                                             <th>[[#{producto.precio}]]</th>
                                             <th>[[#{carrito.cantidad}]]</th>
-                                            <th>[[#{carrito.total}]]</th>
+                                            <th>[[#{carrito.totalCompra}]]</th>
                                             <th></th>
                                             <th></th>
                                         </tr>
