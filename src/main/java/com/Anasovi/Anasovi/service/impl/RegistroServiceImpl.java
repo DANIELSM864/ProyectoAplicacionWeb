@@ -169,8 +169,7 @@ public class RegistroServiceImpl implements RegistroService {
                 Locale.getDefault());
         mensaje = String.format(
                 mensaje, usuario.getNombre(),
-                usuario.getPrimerApellido(),
-                usuario.getSegundoApellido(), servidor,
+                usuario.getPrimerApellido()+" "+usuario.getSegundoApellido(), servidor,
                 usuario.getUsername(), clave);
         String asunto = messageSource.getMessage(
                 "registro.mensaje.recordar",
